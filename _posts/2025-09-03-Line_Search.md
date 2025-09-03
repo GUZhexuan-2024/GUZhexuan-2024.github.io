@@ -14,9 +14,13 @@ The blogs are solely used to record my study of optimization methods and, as suc
 
 #### Main idea
 Given a function $f$ and assume we are now at point $x_{k}$, since we want to minimize the function value, we aim to find a new point $x_{k+1}$, s.t., $f(x_{k+1}) < f(x_{k})$. But how to find this new point? Line search tells you to search along a direction $p_{k}$. Therefore, the iteration of line search is given by
+
 $$
+\begin{aligned}
 x_{k+1} = x_{k} + \alpha_{k}p_{k}.
+\end{aligned}
 $$
+
 
 
 
