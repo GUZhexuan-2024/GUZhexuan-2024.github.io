@@ -37,7 +37,7 @@ $$
 \nabla f(x)^{\top}p < 0
 $$
 
-is sufficient. And such directions $p$ are so-called descent direction. There're some popular chooses of $p$, such as $-\nabla f(x)$ used in steepest descent, $-\mathbf{H}\nabla f(x)$ where $\mathbf{H}$ is the Hessian at $x$ used in Newton update.
+is sufficient. And such directions $p$ are so-called descent direction. There're some popular choices of $p$, such as $-\nabla f(x)$ used in steepest descent, $-\mathbf{B}^{-1}\nabla f(x)$ where $\mathbf{B}$ is a positive definite (p.d.f) matrix. Notice that Newton direction ($-\mathbf{H}^{-1}\nabla f(x)$) is not guaranteed to be a descent direction since the Hessian matrix $\mathbf{H}$ may not be p.d.f.
 
 
 [1]: https://www.math.uci.edu/~qnie/Publications/NumericalOptimization.pdf
