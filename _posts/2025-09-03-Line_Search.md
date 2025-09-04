@@ -41,7 +41,7 @@ is sufficient. And such directions $p$ are so-called descent direction. There're
 
 #### The Wolfe condition
 Unfortunately, the naive idea that $f(x_{k+1}) < f(x_{k})$ has some issues. For example, in the image below, we design a sequence of iterates ${x_{k}}$ for which $f(x_{k}) = 5 / k, k=0,1,\cdots$. Even though each iterate yields decrease($f(x_{0}) > f(x_{1}) > f(x_{2})$), this sequence will not lead us to the minimum which is obviousily less than $0$.
-![insufficient reduction](/assets/img/line_search_1.png)
+![insufficient reduction](../assets/img/line_search_1.png)
 
 
 
