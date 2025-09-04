@@ -27,11 +27,17 @@ Another question arises, how to determine the search direction $p_{k}$. Accordin
 
 $$
 \begin{aligned}
-    \label{eq:taylor}
     f(x + \alpha p) = f(x) + \alpha \nabla f(x)^{\top}p + \frac{1}{2}\left(\alpha p\right)^{\top}\nabla^{2} f(x + t\alpha p)\left(\alpha p\right), \text{for some } t \in [0, 1].
 \end{aligned}
 $$
 
-Since the last term in \ref{eq:taylor} quadratic term about $\alpha$
+Since the quadratic term ($\frac{1}{2}\alpha^{2}p^{\top}\nabla^{2} f(x + t\alpha p)p$) about $\alpha$ approaches $0$ faster than the linear term ($o(\alpha)$), we may focus on the linear term. To decrease the function value, 
+
+$$
+\nabla f(x)^{\top}p < 0
+$$
+
+is sufficient. And such directions $p$ are so-called descent direction. There're some popular chooses of $p$, such as $-\nabla f(x)$ used in steepest descent, $-\mathbf{H}\nabla f(x)$ where $\mathbf{H}$ is the Hessian at $x$ used in Newton update.
+
 
 [1]: https://www.math.uci.edu/~qnie/Publications/NumericalOptimization.pdf
