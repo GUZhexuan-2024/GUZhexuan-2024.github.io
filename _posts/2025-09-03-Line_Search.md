@@ -48,19 +48,21 @@ To overcome the aforementioned problems, wolf condition are proposed,
 
 $$
 \begin{cases}
-f(x_{k} + \alpha p_{k}) \le f(x_{k}) + c_{1}\alpha \nabla f_{k}^{\top}p_{k},\\
-\nabla f(x_{k} + \alpha p_{k})^{\top} p_{k} \ge c_{2}\nabla f_{k}^{\top}p_{k}.
+f(x_{k} + \alpha p_{k}) \le f(x_{k}) + c_{1}\alpha \nabla f_{k}^{\top}p_{k}, \text{for } c_{1} \in (0, 1)\\
+\nabla f(x_{k} + \alpha p_{k})^{\top} p_{k} \ge c_{2}\nabla f_{k}^{\top}p_{k}, \text{for } c_{2} \in (c_{1}, 1).
 \end{cases}
 $$
 
 Don't be scared by these conditions, a picture can vividly demonstrate what these conditions are telling about. But before diving into the picture, let's firstly recap the basic knowledge of directional derivative.
 
 $$
-\begin{array}{cc}
-\frac{d}{d \alpha}f(x_{k} + \alpha p_{k}) = & \frac{f(x_{k} + (\alpha + d \alpha)p_{k}) - f(x_{k} + \alpha p_{k})}{d \alpha}    \\
-= & \frac{f(x_{k} + \alpha p_{k}) + \nabla f(x_{k} + \alpha p_{k})^{\top}\underbrace{p_{k}d\alpha}_{\text{small perturbation}} - f(x_{k} + \alpha p_{k})}{d\alpha}  \\
-= & \nabla f(x_{k} + \alpha p_{k})^{\top}p_{k}
+\begin{array}{ll}
+\frac{d}{d \alpha}f(x_{k} + \alpha p_{k}) & = \frac{f(x_{k} + (\alpha + d \alpha)p_{k}) - f(x_{k} + \alpha p_{k})}{d \alpha}    \\
+& = \frac{f(x_{k} + \alpha p_{k}) + \nabla f(x_{k} + \alpha p_{k})^{\top}\underbrace{p_{k}d\alpha}_{\text{small perturbation}} - f(x_{k} + \alpha p_{k})}{d\alpha}  \\
+& = \nabla f(x_{k} + \alpha p_{k})^{\top}p_{k}
 \end{array}
 $$
+
+![wolfe condition](../assets/img/line_search_2.jpeg)
 
 [1]: https://www.math.uci.edu/~qnie/Publications/NumericalOptimization.pdf
