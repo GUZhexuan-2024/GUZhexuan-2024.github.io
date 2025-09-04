@@ -32,6 +32,6 @@ $$
 \end{aligned}
 $$
 
-Since the last term in  quadratic term about $\alpha$
+Since the last term in \ref{eq:taylor} quadratic term about $\alpha$
 
 [1]: https://www.math.uci.edu/~qnie/Publications/NumericalOptimization.pdf
