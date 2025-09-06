@@ -62,7 +62,7 @@ $$
 \end{array}
 $$
 
-test theorem 8
+test theorem 10
 
 $$
 \newtheorem{theorem}{Theorem}
