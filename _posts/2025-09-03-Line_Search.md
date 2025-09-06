@@ -68,7 +68,7 @@ $$
 \end{array}
 $$
 
-test theorem 2
+test theorem 3
 
 $$
 \begin{theorem}
