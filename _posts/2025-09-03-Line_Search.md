@@ -67,7 +67,7 @@ $$
 \end{array}
 $$
 
-test theorem 3
+test theorem 4
 
 $$
 \begin{theorem}
