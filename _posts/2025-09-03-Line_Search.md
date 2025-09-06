@@ -64,7 +64,7 @@ $$
 
 test theorem 0
 
-{% include z.html %} 
+{% include_relative z.html %} 
 
 <!-- $$
 \newtheorem{theorem}{Theorem}
