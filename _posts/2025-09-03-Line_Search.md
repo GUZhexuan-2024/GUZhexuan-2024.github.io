@@ -62,7 +62,7 @@ $$
 \end{array}
 $$
 
-test theorem 1
+test theorem 0
 
 $$
 % \newtheorem{theorem}{Theorem}
