@@ -2,15 +2,12 @@
 layout: base
 ---
 
-{% include header.html type="post" %}
-
-<main class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}">
 <script>
   MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
       displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      packages: ['base', 'ams', 'autobold', 'color', 'amsthm'], // Include 'ams' for \ref support
+      packages: ['base', 'ams', 'amsthm'], // Include 'ams' for \ref support
       tags: 'ams',        // Automatically number equations
       tagSide: 'right',   // Position equation numbers
       tagIndent: '0.8em'
@@ -18,6 +15,10 @@ layout: base
   };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+
+{% include header.html type="post" %}
+
+<main class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}">
   <div class="row">
     <div class="{% if page.full-width %} col {% else %} col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 {% endif %}">
 
