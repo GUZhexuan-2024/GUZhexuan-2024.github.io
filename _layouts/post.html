@@ -12,23 +12,10 @@ layout: base
       tagSide: 'right',   // Position equation numbers
       tagIndent: '0.8em'
     },
-    loader: {
-      load: ['input/tex-full', 'output/chtml', '[tex]/ams', '[tex]/amsthm']
-    },
-    startup: {
-      ready: function () {
-        console.log('MathJax is loaded:', !!MathJax);
-        console.log('TeX input available:', !!MathJax.tex && !!MathJax.tex.input);
-        console.log('amsthm extension available:', MathJax.tex && MathJax.tex.input && MathJax.tex.input.tex.extensions.amsthm ? true : false);
-        console.log('Loaded packages:', MathJax.config.tex.packages);
-        console.log('MathJax version:', MathJax.version);
-        MathJax.startup.defaultReady();
-      }
-    }
   };
 </script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" id="MathJax-script" async></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js" id="MathJax-script" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js" id="MathJax-script" async></script> -->
 
 {% include header.html type="post" %}
 
