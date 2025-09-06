@@ -12,9 +12,6 @@ layout: base
       tagSide: 'right',   // Position equation numbers
       tagIndent: '0.8em'
     },
-    loader: {
-        load: ['[tex]/amsthm'] // Explicitly load amsthm
-      },
     startup: {
       ready: function () {
         console.log('MathJax is loaded. amsthm available:', MathJax.tex2chtml ? true : false);
