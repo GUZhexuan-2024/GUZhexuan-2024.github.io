@@ -11,7 +11,6 @@ author: GU Zhexuan
 
 $$
 \newtheorem{theorem}{Theorem}
-\newtheorem{lemma}{Lemma}
 $$
 
 ### Preface

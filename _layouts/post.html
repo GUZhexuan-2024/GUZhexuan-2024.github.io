@@ -11,12 +11,9 @@ layout: base
       inlineMath: [['$', '$'], ['\\(', '\\)']],
       displayMath: [['$$', '$$'], ['\\[', '\\]']],
       packages: ['base', 'ams', 'autobold', 'color', 'amsthm'], // Include 'ams' for \ref support
-      tags: 'ams', // Automatically number equations
-      tagSide: 'right', // Position equation numbers
+      tags: 'ams',        // Automatically number equations
+      tagSide: 'right',   // Position equation numbers
       tagIndent: '0.8em'
-    },
-    loader: {
-      load: ['[tex]/ams'] // Ensure AMS package is loaded
     }
   };
 </script>
