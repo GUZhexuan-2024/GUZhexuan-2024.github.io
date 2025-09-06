@@ -268,7 +268,10 @@ paginate: 5
 
 kramdown:
   input: GFM
-  # math_engine: mathjax
+  # smart_quotes: [apos, apos, quot, quot]
+  parse_block_html: false
+  parse_span_html: false
+mathjax: false
 
 # Default YAML values (more information on Jekyll's site)
 defaults:
