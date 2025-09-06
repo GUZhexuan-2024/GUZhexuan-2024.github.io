@@ -62,7 +62,7 @@ $$
 \end{array}
 $$
 
-test theorem 21
+test theorem 23
 
 $$
 \newtheorem{theorem}{Theorem}
