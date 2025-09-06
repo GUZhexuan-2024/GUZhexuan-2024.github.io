@@ -5,7 +5,6 @@ subtitle: 每日一个优化算法之线搜索
 gh-repo: daattali/beautiful-jekyll
 tags: [Numerical Optimization]
 comments: true
-mathjax: true
 author: GU Zhexuan
 ---
 
@@ -67,7 +66,7 @@ $$
 \end{array}
 $$
 
-test theorem 4
+test theorem 5
 
 $$
 \begin{theorem}
