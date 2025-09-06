@@ -65,7 +65,7 @@ $$
 test theorem 1
 
 $$
-\newtheorem{theorem}{Theorem}
+% \newtheorem{theorem}{Theorem}
 \begin{theorem}
 For any integers \(a\) and \(b\), if \(a + b\) is even, then \(a\) and \(b\) have the same parity.
 \end{theorem}
