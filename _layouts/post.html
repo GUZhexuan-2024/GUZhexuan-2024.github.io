@@ -12,6 +12,9 @@ layout: base
       tagSide: 'right',   // Position equation numbers
       tagIndent: '0.8em'
     },
+    loader: {
+        load: ['[tex]/amsthm'] // Explicitly load amsthm
+      },
     startup: {
       ready: function () {
         console.log('MathJax is loaded. amsthm available:', MathJax.tex2chtml ? true : false);
@@ -20,7 +23,7 @@ layout: base
     }
   };
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
 
 {% include header.html type="post" %}
 
@@ -60,7 +63,7 @@ layout: base
       {% endif %}
 
       <div class="blog-post">
-        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <!-- <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script> -->
         {{ content }}
       </div>
 
