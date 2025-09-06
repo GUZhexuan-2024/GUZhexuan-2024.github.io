@@ -18,6 +18,7 @@ layout: base
         console.log('TeX input available:', !!MathJax.tex && !!MathJax.tex.input);
         console.log('amsthm extension available:', MathJax.tex && MathJax.tex.input && MathJax.tex.input.tex.extensions.amsthm ? true : false);
         console.log('Loaded packages:', MathJax.config.tex.packages);
+        console.log('MathJax version:', MathJax.version);
         MathJax.startup.defaultReady();
       }
     }
