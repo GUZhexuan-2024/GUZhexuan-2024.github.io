@@ -62,7 +62,7 @@ $$
 \end{array}
 $$
 
-test theorem 5
+test theorem 6
 
 $$
 \newtheorem{theorem}{Theorem}

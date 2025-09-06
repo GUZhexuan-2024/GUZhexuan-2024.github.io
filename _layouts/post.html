@@ -11,6 +11,12 @@ layout: base
       tags: 'ams',        // Automatically number equations
       tagSide: 'right',   // Position equation numbers
       tagIndent: '0.8em'
+    },
+    startup: {
+      ready: function () {
+        console.log('MathJax is loaded. amsthm available:', MathJax.tex2chtml ? true : false);
+        MathJax.startup.defaultReady();
+      }
     }
   };
 </script>
