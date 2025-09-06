@@ -8,10 +8,6 @@ comments: true
 author: GU Zhexuan
 ---
 
-$$
-\newtheorem{theorem}{Theorem}
-$$
-
 ### Preface
 
 The blogs are solely used to record my study of optimization methods and, as such, will not be as comprehensive or detailed as the referenced textbook,[Numerical Optimization][1]. Additionally, as a computer science major student, I aim to keep the content practical rather than abstract.
@@ -69,6 +65,7 @@ $$
 test theorem 5
 
 $$
+\newtheorem{theorem}{Theorem}
 \begin{theorem}
 For any integers \(a\) and \(b\), if \(a + b\) is even, then \(a\) and \(b\) have the same parity.
 \end{theorem}
