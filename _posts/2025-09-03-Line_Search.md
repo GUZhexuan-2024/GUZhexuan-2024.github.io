@@ -62,14 +62,16 @@ $$
 \end{array}
 $$
 
-test theorem 23
+test theorem 0
 
-$$
+{% include z.html %} 
+
+<!-- $$
 \newtheorem{theorem}{Theorem}
 \begin{theorem}
 For any integers \(a\) and \(b\), if \(a + b\) is even, then \(a\) and \(b\) have the same parity.
 \end{theorem}
-$$
+$$ -->
 
 ![wolfe condition](../assets/img/line_search_2.jpeg)
 
