@@ -73,4 +73,6 @@ The proof of this theorem is relatively easy but the idea is elegant.
 
 {% include_relative Zoutendijk_proof.html %}
 
+The theorem tells us
+
 [1]: https://www.math.uci.edu/~qnie/Publications/NumericalOptimization.pdf
