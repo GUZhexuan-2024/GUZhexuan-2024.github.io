@@ -62,7 +62,7 @@ $$
 \end{array}
 $$
 
-
+And now you may concentrate on the following picture and try to understand what is Wolfe condition talking about.
 ![wolfe condition](../assets/img/line_search_2.jpeg)
 
 {% include_relative Zoutendijk.html %} 
