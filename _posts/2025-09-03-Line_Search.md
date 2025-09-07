@@ -65,6 +65,7 @@ $$
 And now you may concentrate on the following picture and try to understand what is Wolfe condition talking about.
 ![wolfe condition](../assets/img/line_search_2.jpeg)
 
+Zoutendijk theorem
 {% include_relative Zoutendijk.html %} 
 
 [1]: https://www.math.uci.edu/~qnie/Publications/NumericalOptimization.pdf
