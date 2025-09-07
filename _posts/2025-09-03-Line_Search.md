@@ -71,7 +71,7 @@ Zoutendijk's theorem provides a convergence proof for the line search algorithm 
 
 The proof of this theorem is relatively easy but the idea is elegant.
 
-<!-- {% include_relative Zoutendijk_proof.html %} -->
+{% include_relative Zoutendijk_proof.html %}
 
 The theorem tells us
 
