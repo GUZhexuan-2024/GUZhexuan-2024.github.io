@@ -62,7 +62,7 @@ $$
 \end{array}
 $$
 
-test theorem 0
+test theorem 1
 
 {% include_relative z.html %} 
 
