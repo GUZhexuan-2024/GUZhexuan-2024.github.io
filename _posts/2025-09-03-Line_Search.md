@@ -66,6 +66,9 @@ And now you may concentrate on the following picture and try to understand what 
 ![wolfe condition](../assets/img/line_search_2.jpeg)
 
 Zoutendijk's theorem provides a convergence proof for the line search algorithm under the Wolfe conditions.
-{% include_relative Zoutendijk.html %} 
+
+{% include_relative Zoutendijk.html %}
+
+The proof of this theorem is relatively easy but the idea is elegant.
 
 [1]: https://www.math.uci.edu/~qnie/Publications/NumericalOptimization.pdf
