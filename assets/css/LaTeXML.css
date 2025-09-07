@@ -210,6 +210,13 @@ a.ltx_LaTeXML_logo { text-decoration: none; }
 .ltx_eqn_row   { display:table-row; }
 .ltx_eqn_cell  { display:table-cell; width:auto; }
 
+.ltx_Math[display="block"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+  width: auto;
+}
+
 /* Padding between column pairs in ams align */
 table.ltx_eqn_align tr.ltx_equation td.ltx_align_left + td.ltx_align_right,
 table.ltx_eqn_align tr.ltx_equation td.ltx_align_left + td.ltx_align_center,
