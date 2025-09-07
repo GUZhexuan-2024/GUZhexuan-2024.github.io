@@ -62,17 +62,9 @@ $$
 \end{array}
 $$
 
-test theorem 1
-
-{% include_relative z.html %} 
-
-<!-- $$
-\newtheorem{theorem}{Theorem}
-\begin{theorem}
-For any integers \(a\) and \(b\), if \(a + b\) is even, then \(a\) and \(b\) have the same parity.
-\end{theorem}
-$$ -->
 
 ![wolfe condition](../assets/img/line_search_2.jpeg)
+
+{% include_relative Zoutendijk.html %} 
 
 [1]: https://www.math.uci.edu/~qnie/Publications/NumericalOptimization.pdf
