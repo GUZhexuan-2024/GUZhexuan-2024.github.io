@@ -76,8 +76,22 @@ The proof of this theorem is relatively easy but the idea is elegant.
 Since the series is convergent, we know that the limit of its sequence of terms must be $0$,
 
 $$
-cos^{2}_{\theta_{k}}\|\nabla f_{k}\|^{2} \rightarrow 0. 
+cos^{2}_{\theta_{k}}\|\nabla f_{k}\|^{2} \rightarrow 0.
 $$
+
+Therefore, if we can ensure that if the angle $\theta_{k}$ is bounded away from $90^{\circ}$, there is a positive constant $\delta$ such that 
+
+$$
+cos \theta_{k} \ge \delta > 0, \text{for all }k.  
+$$
+
+It follows immediately that
+
+$$
+\lim_{k\rightarrow \infty} \|\nabla f_{k}\| = 0.
+$$
+
+It means we can fillay achive a stationary point.
 
 
 [1]: https://www.math.uci.edu/~qnie/Publications/NumericalOptimization.pdf
