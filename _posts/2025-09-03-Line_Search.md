@@ -73,7 +73,11 @@ The proof of this theorem is relatively easy but the idea is elegant.
 
 {% include_relative Zoutendijk_proof.html %}
 
-The theorem tells us
+Since the series is convergent, we know that the limit of its sequence of terms must be $0$,
+
+$$
+cos^{2}_{\theta_{k}}\|\nabla f_{k}\|^{2} \rightarrow 0. 
+$$
 
 
 [1]: https://www.math.uci.edu/~qnie/Publications/NumericalOptimization.pdf
