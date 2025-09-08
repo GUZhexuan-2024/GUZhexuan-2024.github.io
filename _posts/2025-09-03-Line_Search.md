@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Line Search Algorithm
-subtitle: 每日一个优化算法之线搜索
+subtitle: 每周一个优化算法之线搜索
 gh-repo: daattali/beautiful-jekyll
 tags: [Numerical Optimization]
 comments: true
@@ -30,7 +30,7 @@ $$
 \end{aligned}
 $$
 
-Since the quadratic term ($\frac{1}{2}\alpha^{2}p^{\top}\nabla^{2} f(x + t\alpha p)p$) about $\alpha$ approaches $0$ faster than the linear term ($o(\alpha)$), we may focus on the linear term when $\alpha$ is sufficiently small. To decrease the function value, 
+Since the quadratic term ($\frac{1}{2}\alpha^{2}p^{\top}\nabla^{2} f(x + t\alpha p)p$) about $\alpha$ approaches $0$ faster than the linear term ($o(\alpha)$), we may focus on the linear term when $\alpha$ is sufficiently small. To decrease the function value,
 
 $$
 \nabla f(x)^{\top}p < 0
@@ -79,7 +79,7 @@ $$
 cos^{2}_{\theta_{k}}\|\nabla f_{k}\|^{2} \rightarrow 0.
 $$
 
-Therefore, if we can ensure that if the angle $\theta_{k}$ is bounded away from $90^{\circ}$, there is a positive constant $\delta$ such that 
+Therefore, if we can ensure that if the angle $\theta_{k}$ is bounded away from $90^{\circ}$, there is a positive constant $\delta$ such that
 
 $$
 cos \theta_{k} \ge \delta > 0, \text{for all }k.  
@@ -91,7 +91,7 @@ $$
 \lim_{k\rightarrow \infty} \|\nabla f_{k}\| = 0.
 $$
 
-It means we can fillay achive a stationary point.
+It means we can finally achive a stationary point.
 
 
 [1]: https://www.math.uci.edu/~qnie/Publications/NumericalOptimization.pdf
