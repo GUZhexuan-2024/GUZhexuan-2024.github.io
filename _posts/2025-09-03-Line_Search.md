@@ -91,7 +91,37 @@ $$
 \lim_{k\rightarrow \infty} \|\nabla f_{k}\| = 0.
 $$
 
-It means we can finally achive a stationary point.
+#### Convergence rate
+
+It means we can finally arrive at a stationary point. Except caring about whether the algorithm converges, we also care about the convergence rate. Obviously, the preference will be given to those fast and efficient algorithms. Here, we learn about how to compute the convergence rate of steepest descent method by considering an ideal case.
+
+Here, the objective function is quadratic and the line searches are exact. Suppose the objective function is,
+
+$$
+f(x) = \frac{1}{2}x^{\top}Qx - b^{\top}x,
+$$
+
+where $Q$ is symmetric and positive definite. Obviousily, the gradient is given by $\nabla f(x) = Qx - b$ and the minimizer is $x^{*}$ is the unique solution of the linear system $Qx=b$. (Note that it's a convex function since the Hessian is always positive definite.)
+
+Notice that since we adopt the exact line search algorithm, we can explicitly compute the step size $\alpha_{k}$. The exact line search algorithm indicates,
+
+$$
+\alpha_{k} \in \arg\min_{\alpha}f(x_{k} - \alpha \nabla f_{k}).
+$$
+
+Again, since $g(\alpha) = f(x_{k} - \alpha \nabla f_{k})$ is a quadratic function about $\alpha$, we can take derivative with respect to $\alpha$ which is $-\nabla f(x_{k} - \alpha \nabla f_{k})^{\top}\nabla f_{k}$. By setting the derivtive to $0$, we can get,
+
+$$
+\alpha_{k} = \frac{\nabla f_{k}^{\top}\nabla f_{k}}{\nabla f_{k}^{\top}Q\nabla f_{k}}.
+$$
+
+To quantify the rate of convergence, we introduce the weighted norm $\|x\|_{Q}^{2} = x^{\top}Qx$ and it's easy to show that
+
+$$
+\frac{1}{2}\|x - x^{*}\|_{Q}^{2} = \frac{1}{2}(x^{\top}Qx - 2x^{\top}\underbrace{Qx^{*}}_{\text{exactly } b} + (x^{*})^{\top}Qx^{*}) = f(x) - f(x^{*}).
+$$
+
+
 
 
 [1]: https://www.math.uci.edu/~qnie/Publications/NumericalOptimization.pdf
