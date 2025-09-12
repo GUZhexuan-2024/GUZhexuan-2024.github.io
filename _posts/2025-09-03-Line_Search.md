@@ -91,9 +91,19 @@ $$
 \lim_{k\rightarrow \infty} \|\nabla f_{k}\| = 0.
 $$
 
+Such conditions can be satisfied in the Newton-like method and the positive definite matrices $B_{k} is uniformly bounded by the condition number. That is, there's a constant $M$ such that
+
+$$
+\|B_{k}\| \|B_{k}^{-1}\| \le M, \text{for all } k.
+$$
+
+Then $cos \theta_{k} \ge 1/M$.
+
+It means we can finally arrive at a stationary point.
+
 #### Convergence rate
 
-It means we can finally arrive at a stationary point. Except caring about whether the algorithm converges, we also care about the convergence rate. Obviously, the preference will be given to those fast and efficient algorithms. Here, we learn about how to compute the convergence rate of steepest descent method by considering an ideal case.
+Except caring about whether the algorithm converges, we also care about the convergence rate. Obviously, the preference will be given to those fast and efficient algorithms. Here, we learn about how to compute the convergence rate of steepest descent method by considering an ideal case.
 
 Here, the objective function is quadratic and the line searches are exact. Suppose the objective function is,
 
@@ -115,7 +125,7 @@ $$
 \alpha_{k} = \frac{\nabla f_{k}^{\top}\nabla f_{k}}{\nabla f_{k}^{\top}Q\nabla f_{k}}.
 $$
 
-To quantify the rate of convergence, we introduce the weighted norm $\|x\|_{Q}^{2} = x^{\top}Qx$ and it's easy to show that
+To quantify the rate of convergence, we introduce the weighted norm $\|\|x\|\|_{Q}^{2} = x^{\top}Qx$ and it's easy to show that
 
 $$
 \frac{1}{2}\|x - x^{*}\|_{Q}^{2} = \frac{1}{2}(x^{\top}Qx - 2x^{\top}\underbrace{Qx^{*}}_{\text{exactly } b} + (x^{*})^{\top}Qx^{*}) = f(x) - f(x^{*}).
