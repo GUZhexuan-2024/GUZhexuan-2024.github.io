@@ -138,7 +138,11 @@ $$
 \frac{1}{2}\|x - x^{*}\|_{Q}^{2} = \frac{1}{2}(x^{\top}Qx - 2x^{\top}\underbrace{Qx^{*}}_{\text{exactly } b} + (x^{*})^{\top}Qx^{*}) = f(x) - f(x^{*}).
 $$
 
-To compute the convergence rate, we wanna obtain the relationship between $\|\|x_{k+1} - x^{\ast}\|\|_{Q}^{2},\|\|x_{k} - x^{\ast}\|\|_{Q}^{2}$.
+To compute the convergence rate, we wanna obtain the relationship between
+
+$$
+\|x_{k+1} - x^{\ast}\|_{Q}^{2} \text{ and } \|x_{k} - x^{\ast}\|_{Q}^{2}.
+$$
 
 See the following derivation.
 
