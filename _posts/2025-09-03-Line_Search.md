@@ -43,7 +43,7 @@ is sufficient. And such directions $p$ are so-called descent direction. There're
 Unfortunately, the naive idea that $f(x_{k+1}) < f(x_{k})$ has some issues. For example, in the image below, we design a sequence of iterates $\{x_{k}\}$ for which $f(x_{k}) = 5 / k, k=0,1,\cdots$. Even though each iterate yields decrease($f(x_{0}) > f(x_{1}) > f(x_{2})$), this sequence will not lead us to the minimum which is obviousily less than $0$.
 ![insufficient reduction](../assets/img/line_search_1.png)
 
-To overcome the aforementioned problems, wolf condition are proposed,
+To overcome the aforementioned problems, Wolfe condition is proposed,
 
 $$
 \begin{cases}
@@ -65,7 +65,7 @@ $$
 And now you may concentrate on the following picture and try to understand what is Wolfe condition talking about.
 ![wolfe condition](../assets/img/line_search_2.jpeg)
 
-Zoutendijk's theorem provides a convergence proof for the line search algorithm under the Wolfe conditions.
+Zoutendijk's theorem provides a convergence proof for the line search algorithm under the Wolfe condition.
 
 {% include_relative Zoutendijk.html %}
 
