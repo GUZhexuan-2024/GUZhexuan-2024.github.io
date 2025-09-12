@@ -91,7 +91,7 @@ $$
 \lim_{k\rightarrow \infty} \|\nabla f_{k}\| = 0.
 $$
 
-Such conditions can be satisfied in the Newton-like method and the positive definite matrices $B_{k} is uniformly bounded by the condition number. That is, there's a constant $M$ such that
+Such conditions can be satisfied in the Newton-like method and the positive definite matrices $B_{k}$ is uniformly bounded by the condition number. That is, there's a constant $M$ such that
 
 $$
 \|B_{k}\| \|B_{k}^{-1}\| \le M, \text{for all } k.
