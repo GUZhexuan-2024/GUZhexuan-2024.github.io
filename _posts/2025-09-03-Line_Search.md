@@ -140,6 +140,8 @@ $$
 
 To compute the convergence rate, we wanna obtain the relationship between $\|x_{k+1} - x^{*}\|_{Q}^{2}$ and $\|x_{k} - x^{*}\|_{Q}^{2}$.
 
+See the following derivation.
+
 ![convergence rate](../assets/img/line_search_weighted_norm.jpg)
 
 
