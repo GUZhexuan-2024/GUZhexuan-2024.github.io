@@ -65,7 +65,7 @@ $$
 And now you may concentrate on the following picture and try to understand what is Wolfe condition talking about.
 ![wolfe condition](../assets/img/line_search_2.jpeg)
 
-Zoutendijk's theorem provides a convergence proof for the line search algorithm under the Wolfe condition.
+It's not hard to prove that there exists such step lengths that satisfy Wolfe conditions for every function $f$ that is smooth and bounded below.(Refer to Lemma 3.1 of the [book][1]) Zoutendijk's theorem provides a convergence proof for the line search algorithm under the Wolfe condition.
 
 {% include_relative Zoutendijk.html %}
 
@@ -76,7 +76,7 @@ The proof of this theorem is relatively easy but the idea is elegant.
 Since the series is convergent, we know that the limit of its sequence of terms must be $0$,
 
 $$
-cos^{2}_{\theta_{k}}\|\nabla f_{k}\|^{2} \rightarrow 0.
+cos^{2}{\theta_{k}}\|\nabla f_{k}\|^{2} \rightarrow 0.
 $$
 
 Therefore, if we can ensure that if the angle $\theta_{k}$ is bounded away from $90^{\circ}$, there is a positive constant $\delta$ such that
