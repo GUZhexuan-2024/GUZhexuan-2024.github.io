@@ -97,7 +97,14 @@ $$
 \|B_{k}\| \|B_{k}^{-1}\| \le M, \text{for all } k.
 $$
 
-Then $cos \theta_{k} \ge 1/M$.
+Then $cos \theta_{k} \ge 1/M$. Notice some properties for positive definite matrix $B_{k}$:
+
+* the spetral norm is equal to its $\lambda_{\text{max}}(B_{k})$ and the spetral norm of $B_{k}^{-1}$ is equal to $\frac{1}{\lambda_{\text{min}}(B_{k})}$.
+* $B_{k}$ has eigen decomposition $B_{k} = U\Lambda U^{\top}$ where $U$ is a orthogonal matrix and its square root $B_{k}^{\frac{1}{2}} = U\Lambda^{\frac{1}{2}} U^{\top}$ is well defined.
+* Similar to $B_{k}$, $B_{k}^{-1} = U\Lambda^{-1} U^{\top}$ and $B_{k}^{-\frac{1}{2}} = U\Lambda^{-\frac{1}{2}} U^{\top}$.
+* the spectral norm of $B_{k}^{\frac{1}{2}}$ is equal to $\sqrt{\lambda_{\text{max}}(B_{k})}$.
+
+Based on the properties above, [See proof Here.][2]
 
 It means we can finally arrive at a stationary point.
 
@@ -135,3 +142,4 @@ $$
 
 
 [1]: https://www.math.uci.edu/~qnie/Publications/NumericalOptimization.pdf
+[2]: https://math.stackexchange.com/questions/2630063/towards-a-proof-of-global-convergence-for-newton-like-methods
