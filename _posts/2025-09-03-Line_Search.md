@@ -151,7 +151,7 @@ See the following derivation.
 Luenberger proved the theorem that, when the steepest descent method with exact line searches is applied to the aforementioned strongly convex quandratic function, the error norm satisfies
 
 $$
-\|x_{k+1} - x^{\ast}\|_{Q}^{2} \le \frac{\lambda_{n} - \lambda_{1}}{\lambda_{n} + \lambda_{1}}\|x_{k} - x^{\ast}\|_{Q}^{2}.
+\|x_{k+1} - x^{\ast}\|_{Q}^{2} \le \left(\frac{\lambda_{n} - \lambda_{1}}{\lambda_{n} + \lambda_{1}}\right)^{2}\|x_{k} - x^{\ast}\|_{Q}^{2}.
 $$
 
 where $0 \le \lambda_{1} \le \lambda_{2} \le \cdots \le \lambda_{n}$ are the eigenvalues of $Q$. Obviously, if $Q$ is a multiple of identity matrix (all the eigenvalues are the same), then the algorithm can converge in one iteration. The theorem utilized the famous [Kantorovich inequality][3].
