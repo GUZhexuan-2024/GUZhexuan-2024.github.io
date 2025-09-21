@@ -154,7 +154,7 @@ $$
 \|x_{k+1} - x^{\ast}\|_{Q}^{2} \le \left(\frac{\lambda_{n} - \lambda_{1}}{\lambda_{n} + \lambda_{1}}\right)^{2}\|x_{k} - x^{\ast}\|_{Q}^{2}.
 $$
 
-where $0 \le \lambda_{1} \le \lambda_{2} \le \cdots \le \lambda_{n}$ are the eigenvalues of $Q$. Obviously, if $Q$ is a multiple of identity matrix (all the eigenvalues are the same), then the algorithm can converge in one iteration. The theorem utilized the famous [Kantorovich inequality][3].
+where $0 \le \lambda_{1} \le \lambda_{2} \le \cdots \le \lambda_{n}$ are the eigenvalues of $Q$. Obviously, if $Q$ is a multiple of identity matrix (all the eigenvalues are the same), then the algorithm can converge in one iteration. It also reveals another serious issue of exact line search, that is, if the condition number of $Q$ is quite large, the zigzag path will make the algorithm inefficient. The theorem utilized the famous [Kantorovich inequality][3].
 
 
 [1]: https://www.math.uci.edu/~qnie/Publications/NumericalOptimization.pdf
