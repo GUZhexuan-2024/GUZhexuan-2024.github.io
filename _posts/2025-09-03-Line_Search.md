@@ -148,8 +148,15 @@ See the following derivation.
 
 ![convergence rate](../assets/img/line_search_weighted_norm.jpg)
 
+Luenberger proved the theorem that, when the steepest descent method with exact line searches is applied to the aforementioned strongly convex quandratic function, the error norm satisfies
 
+$$
+\|x_{k+1} - x^{\ast}\|_{Q}^{2} \le \frac{\lambda_{n} - \lambda_{1}}{\lambda_{n} + \lambda_{1}}\|x_{k} - x^{\ast}\|_{Q}^{2}.
+$$
+
+where $0 \le \lambda_{1} \le \lambda_{2} \le \cdots \le \lambda_{n}$ are the eigenvalues of $Q$. Obviously, if $Q$ is a multiple of identity matrix (all the eigenvalues are the same), then the algorithm can converge in one iteration. The theorem utilized the famous [Kantorovich inequality][3].
 
 
 [1]: https://www.math.uci.edu/~qnie/Publications/NumericalOptimization.pdf
 [2]: https://math.stackexchange.com/questions/2630063/towards-a-proof-of-global-convergence-for-newton-like-methods
+[3]: https://en.wikipedia.org/wiki/Kantorovich_inequality
