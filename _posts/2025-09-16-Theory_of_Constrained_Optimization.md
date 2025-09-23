@@ -19,10 +19,12 @@ In this blog, we mainly focus on the following problem,
 $$
 \begin{array}{cc}
     \min_{x \in \mathbb{R}^{n}} & f(x) \\
-    \text{s.t.} & c_{i}(x) = 0, i \in \Epsilon, \\
-                & c_{i}(x) \ge 0, i \in \mathcal{I}.
+    \text{s.t.} & c_{i}(x) = 0, i \in \mathcal{E}, \\
+                & c_{i}(x) \ge 0, i \in \mathcal{I},
 \end{array}
 $$
+
+where $f$ and the functions $c_{i}$ are all smooth, real-valued functions on subset of $\mathbb{R}^{n}$, and $\mathcal{E}$ and $\mathcal{I}$ are finite sets of indices. Here, we call $c_{i}$, $i \in \mathcal{E}$ are the equality constraints and $c_{i}$, $i \in \mathcal{I}$ are the inequality constraints. We define the feasible set $\Omega$ to be the set of points that <span style="color:blue">**satisfy the constraints**</span>.
 
 
 
