@@ -38,7 +38,7 @@ I firmly believe that most readers are familiar with the structure of the Lagran
 
 Let's understand this with an example.
 
-Consider 
+Consider
 
 $$
 \begin{array}{cc}
@@ -51,9 +51,24 @@ Clearly, the feasible region is a circle and its interior as demonstrated in the
 
 ![Feasible Region](../assets/img/chapter12/fig1.png)
 
+To analyze the problem throughly, we consider two cases:
+
+1. **Interior Minimizer:** When the minimizer lies in the interior of the feasible set $\Omega$. In this situation, if the gradient of the objective function $\nabla f \neq \mathbf{0}$, we can move in the direction of  $-\nabla f$ with a sufficiently small step to obtain a point with a lower function value while remaining feasible. Thus, for a point in the interior to be a minimizer, it must satisfy $\nabla f = \mathbf{0}$. In this case, the zero vector is parallel to any vector, including the constraint normal.
+
+2. **Boundary Minimizer:** When the minimizer lies on the boundary of $\Omega$. In this situation, the corresponding constraint is "active," meaning the equality $c(x) = 0$ holds. Here, not all directions are feasible, as moving in certain directions may violate the constraint. To remain feasible, a small displacement $d$ must satisfy $c(x+d)\approx c(x)+\nabla c^{\top}d = \nabla c^{\top}d\ge 0$. Additionally, to improve the objective function, we require $f(x+d) \approx f(x)+\nabla f^{\top}d < f(x) \rightarrow \nabla f^{\top}d <0$. At a minimizer, no such direction $d$ should exist that satisfies both conditions simultaneously. Consequently, $\nabla f$ and $\nabla c$ must be parallel and point in the same direction (i.e., $\nabla f = \lambda \nabla c$ for some $\lambda \geq 0$). Otherwise, the two half-spaces defined by $\nabla c^{\top} d \geq 0$ and $\nabla f^{\top} d < 0$ would intersect, implying the existence of a feasible descent direction, as illustrated in the accompanying figure.
+
+![Feasible Region](../assets/img/chapter12/fig2.jpeg)
+
+To sum up, both of the situations require that the gradient of the objective function is parallel to the constraint normal. Furthermore, multipler $\lambda$ is nonnegative, and when the constraint is **inactive** ($c_{i}(x) > 0$), the corresponding multiplier must be $0$ (complementarity slackness).
 
 
+### Tagent cone and constraint qualification
 
+### KKT conditions
+
+### KKT conditions: proof
+
+### Duality
 
 
 [1]: https://www.math.uci.edu/~qnie/Publications/NumericalOptimization.pdf
