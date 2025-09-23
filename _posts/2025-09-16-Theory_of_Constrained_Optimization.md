@@ -32,6 +32,28 @@ $$
 \min_{x \in \Omega} ~ f(x).
 $$
 
+### Lagrangian function
+
+I firmly believe that most readers are familiar with the structure of the Lagrangian function. Typically, we assign a multiplier to each constraint and formulate the Lagrangian by subtracting the product of each multiplier and its corresponding constraint function from the objective function, as expressed by $\mathcal{L}(x, \lambda, \mu) = f(x) - \sum_{i \in \mathcal{E}} \lambda_i c_i(x) - \sum_{i \in \mathcal{I}} \mu_i c_i(x)$. In most cases, the next step involves computing the gradient with respect to the optimization variable $x$ and setting it to zero to find the critical points. **_BUT WHY?_** 
+
+Let's understand this with an example.
+
+Consider 
+
+$$
+\begin{array}{cc}
+    \min & x_{1} + x_{2} \\
+    \text{s.t.} & 2 - x_{1}^{2} - x_{2}^{2} \ge 0.
+\end{array}
+$$
+
+Clearly, the feasible region is a circle and its interior as demonstrated in the following figure. Additionally, we plot the gradient of objective function $\nabla f = [1, 1]^{\top}$ and the constraint normal $\nabla c_{1} = [-2x_{1}, -2x_{2}]^{\top}$ **<span style="color:red">(The $\nabla c_{1}$ in the figure should point to the opposite direction.)</span>**
+
+![Feasible Region](../assets/img/chapter12/fig1.png)
+
+
+
+
 
 
 [1]: https://www.math.uci.edu/~qnie/Publications/NumericalOptimization.pdf
