@@ -17,7 +17,7 @@ I believe I have some understanding of constrained optimization problems before 
 In this blog, we mainly focus on the following problem,
 
 $$
-\begin{array}{cc}
+\begin{array}{ll}
     \min_{x \in \mathbb{R}^{n}} & f(x) \\
     \text{s.t.} & c_{i}(x) = 0, i \in \mathcal{E}, \\
                 & c_{i}(x) \ge 0, i \in \mathcal{I},
@@ -41,7 +41,7 @@ Let's understand this with an example.
 Consider
 
 $$
-\begin{array}{cc}
+\begin{array}{ll}
     \min & x_{1} + x_{2} \\
     \text{s.t.} & 2 - x_{1}^{2} - x_{2}^{2} \ge 0.
 \end{array}
@@ -61,8 +61,49 @@ To analyze the problem throughly, we consider two cases:
 
 To sum up, both of the situations require that the gradient of the objective function is parallel to the constraint normal. Furthermore, multipler $\lambda$ is nonnegative, and when the constraint is **inactive** ($c_{i}(x) > 0$), the corresponding multiplier must be $0$ (complementarity slackness).
 
+Back to the beginning of this section, the procudures are actually a generalization of this vivid example.
 
 ### Tagent cone and constraint qualification
+
+All derivations appear correct at this stage. However, we should ask **whether the first-order approximation (linearization) is appropriate**.
+
+Consider the following problem
+
+$$
+\begin{array}{ll}
+    \min & x_{1} + x_{2} \\
+    \text{s.t.} & 1 - x_{1}^{2} - (x_{2} - 1)^{2} \ge 0,\\
+                & -x_{2} \ge 0.
+\end{array}
+$$
+
+Obviously, the feasible set is the single point $\Omega = \{(0, 0)^{\top}\}$. However, if we apply linearization at the point $(0, 0)$, we are indeed looking for a direction $d$ such that $[0, -1][d_{1}, d_{2}]^{\top}\ge 0$ and $[-2x_{1}, -2(x_{2} - 1)][d_{1}, d_{2}]^{\top}\ge 0$. This implies that any direction $[d_{1}, 0]^{\top}$ maintains feasibility, which contradicts the clear conclusion that the feasible set is a single point. Thus, linearization fails to capture the geometry of the feasible set here.
+
+To address this issue, we introduce the tangent cone, which captures the geometric features of the feasible set. We first introduce **<span style="color:red">three key definitions</span>**.
+
+- We define the tagent cone $T_{\Omega}(x^{\ast})$ to the closed convex set $\Omega$ at a point $x^{\ast} \in \Omega$. The vector $d$ is said to be a tagent to $\Omega$ at a point $x$ is there are a feasible sequence $\{z_{k}\}$ approaching $x$ and a sequence of positive scalars $\{t_{k}\}$ with $t_{k}\rightarrow 0$ such that
+$$
+\lim_{k\rightarrow \infty} \frac{z_{k} - x}{t_{k}} = d.
+$$
+The set of all tangents to $\Omega$ at $x^{*}$ is called the tagent cone and is denoted by $T_{\Omega}(x^{\ast})$.
+
+
+- We define the active set $\mathcal{A}(x)$ at any feasible $x$ consists of the equality constrain indices from $\mathcal{E}$ together with the indices of the inequality constraints $i$ for which $c_{i}(x)=0$; that is,
+$$
+\mathcal{A}(x) = \mathcal{E} \cup \{i\in\mathcal{I}|c_{i}(x)=0\}.
+$$
+At a feasible point $x$, the inequality constraint $i\in\mathcal{I}$ is said to be _active_ if $c_{i}(x)=0$ and _inactive_ if the strict inequality $c_{i}(x)>0$ is satisfied.
+
+
+- Given a feasible point $x$and the active constraint set $\mathcal{A}(x)$. We define the set of linearized feasible direction $\mathcal{F}(x)$ is 
+$$
+\mathcal{F}(x)=
+\begin{cases}
+    d^{\top}\nabla c_{i}(x)=0, \text{for all } i\in \mathcal{E}, \\
+    d^{\top}\nabla c_{i}(x)\ge 0, \text{for all } i\in \mathcal{A}(x) \cap \mathcal{I}.
+\end{cases}
+$$
+It's easy to verify that $\mathcal{F}(x)$ is a cone.
 
 ### KKT conditions
 
