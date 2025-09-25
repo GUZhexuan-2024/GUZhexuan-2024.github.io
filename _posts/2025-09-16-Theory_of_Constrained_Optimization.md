@@ -47,7 +47,7 @@ $$
 \end{array}
 $$
 
-Clearly, the feasible region is a circle and its interior as demonstrated in the following figure. Additionally, we plot the gradient of objective function $\nabla f = [1, 1]^{\top}$ and the constraint normal $\nabla c_{1} = [-2x_{1}, -2x_{2}]^{\top}$ **<span style="color:red">(The $\nabla c_{1}$ in the figure should point to the opposite direction.)</span>**
+Clearly, the feasible region is a circle and its interior as demonstrated in the following figure. Additionally, we plot the gradient of objective function $\nabla f = [1, 1]^{\top}$ and the constraint normal $\nabla c_{1} = [-2x_{1}, -2x_{2}]^{\top}$ **<span style="color:red">(The $\nabla c_{1}$ in the figure should point to the opposite direction)</span>**.
 
 ![Feasible Region](../assets/img/chapter12/fig1.png)
 
@@ -105,7 +105,34 @@ $$
 $$
 It's easy to verify that $\mathcal{F}(x)$ is a cone.
 
+The tangent cone encapsulates key geometric properties because the sequence ({z_k}) under consideration remains feasible. As a result, it encompasses directions that preserve feasibility. The textbook offers two examples to demonstrate the computation of tangents. Here I'm going to illustrate one of them.
+
+Consider the problem,
+
+$$
+\begin{array}{ll}
+    \min & x_{1} + x_{2} \\
+    \text{s.t.} & x_{1}^{2} + x_{2}^{2} - 2 = 0,
+\end{array}
+$$
+
+and we want to obtain the tagents at a nonoptimal point $x = (-\sqrt{2}, 0)^{\top}$. One feasible sequence we can define is, $z_{k} = (-\sqrt{2 - 1/k^{2}}, -1/k)^{\top}$, visualized as the red points in the below figure.
+
+![Feasible Region](../assets/img/chapter12/fig3.jpeg)
+
+Additionally, we choose $t_{k} = \|\|z_{k} - x\|\|$. The tagent computation process mainly involves the limit calculation, which is shown below.
+
+![Feasible Region](../assets/img/chapter12/fig4.jpg)
+
+It's satisfactory if the feasible directions $\mathcal{F}(x)$ is similar to even identicle to the tagent cone $T_{\Omega}(x)$. Constraint qualifications are pivotal in this context. The Linear Independence Constraint Qualification (LICQ) is a prominent condition, defined as:
+
+- Given the point $x$ and the active set $\mathcal{A}(x)$, we say that the linear independence constraint qualification (LICQ) holds if the set of active constraint gradients $\{\nabla c_{i}(x), i \in \mathcal{A}(x)\}$ is linearly independent.
+
+Consider the initial problem in this section: both constraints are active at $(0, 0)$, with gradients $(0, -1)$ and $(0, 2)$ respectively. **<span style="color:green">These gradients are evidently linearly dependent</span>**, causing the linearization at this point to inadequately reflect the geometric characteristics.
+
 ### KKT conditions
+
+The first-order necessary consitions, also known as KKT conditions, is given in this section. 
 
 ### KKT conditions: proof
 
