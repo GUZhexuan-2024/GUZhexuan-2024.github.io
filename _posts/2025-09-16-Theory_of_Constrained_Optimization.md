@@ -132,7 +132,7 @@ Consider the initial problem in this section: both constraints are active at $(0
 
 ### KKT conditions
 
-The first-order necessary consitions, also known as KKT conditions, is given in this section. 
+The first-order necessary consitions, also known as KKT conditions, is given in this section.
 
 ### KKT conditions: proof
 
