@@ -88,14 +88,14 @@ $$
 The set of all tangents to $\Omega$ at $x^{*}$ is called the tagent cone and is denoted by $T_{\Omega}(x^{\ast})$.
 
 
-- We define the active set $\mathcal{A}(x)$ at any feasible $x$ consists of the equality constrain indices from $\mathcal{E}$ together with the indices of the inequality constraints $i$ for which $c_{i}(x)=0$; that is,
+- We define the active set $\mathcal{A}(x)$ at any feasible $x$ consists of the equality constraint indices from $\mathcal{E}$ together with the indices of the inequality constraints $i$ for which $c_{i}(x)=0$; that is,
 $$
 \mathcal{A}(x) = \mathcal{E} \cup \{i\in\mathcal{I}|c_{i}(x)=0\}.
 $$
 At a feasible point $x$, the inequality constraint $i\in\mathcal{I}$ is said to be _active_ if $c_{i}(x)=0$ and _inactive_ if the strict inequality $c_{i}(x)>0$ is satisfied.
 
 
-- Given a feasible point $x$and the active constraint set $\mathcal{A}(x)$. We define the set of linearized feasible direction $\mathcal{F}(x)$ is 
+- Given a feasible point $x$ and the active constraint set $\mathcal{A}(x)$. We define the set of linearized feasible direction $\mathcal{F}(x)$ is 
 $$
 \mathcal{F}(x)=
 \begin{cases}
@@ -105,7 +105,7 @@ $$
 $$
 It's easy to verify that $\mathcal{F}(x)$ is a cone.
 
-The tangent cone encapsulates key geometric properties because the sequence ({z_k}) under consideration remains feasible. As a result, it encompasses directions that preserve feasibility. The textbook offers two examples to demonstrate the computation of tangents. Here I'm going to illustrate one of them.
+The tangent cone encapsulates key geometric properties because the sequence $\{z_{k}\}$ under consideration remains feasible. As a result, it encompasses directions that preserve feasibility. The textbook offers two examples to demonstrate the computation of tangents. Here I'm going to illustrate one of them.
 
 Consider the problem,
 
@@ -124,11 +124,11 @@ Additionally, we choose $t_{k} = \|\|z_{k} - x\|\|$. The tagent computation proc
 
 ![Feasible Region](../assets/img/chapter12/fig4.jpg)
 
-It's satisfactory if the feasible directions $\mathcal{F}(x)$ is similar to even identicle to the tagent cone $T_{\Omega}(x)$. Constraint qualifications are pivotal in this context. The Linear Independence Constraint Qualification (LICQ) is a prominent condition, defined as:
+It's satisfactory if the feasible directions $\mathcal{F}(x)$ is similar or even identicle to the tagent cone $T_{\Omega}(x)$. Constraint qualifications are pivotal in this context. The Linear Independence Constraint Qualification (LICQ) is a prominent condition, defined as:
 
 - Given the point $x$ and the active set $\mathcal{A}(x)$, we say that the linear independence constraint qualification (LICQ) holds if the set of active constraint gradients $\{\nabla c_{i}(x), i \in \mathcal{A}(x)\}$ is linearly independent.
 
-Consider the initial problem in this section: both constraints are active at $(0, 0)$, with gradients $(0, -1)$ and $(0, 2)$ respectively. **<span style="color:green">These gradients are evidently linearly dependent</span>**, causing the linearization at this point to inadequately reflect the geometric characteristics.
+Consider the initial problem in this section: both constraints are active at $(0, 0)$, with gradients $[0, -1]^{\top}$ and $[0, 2]^{\top}$ respectively. **<span style="color:green">These gradients are evidently linearly dependent</span>**, causing the linearization at this point to inadequately reflect the geometric characteristics.
 
 ### KKT conditions
 
