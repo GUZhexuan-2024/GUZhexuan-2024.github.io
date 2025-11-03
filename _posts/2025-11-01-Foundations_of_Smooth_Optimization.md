@@ -1,7 +1,14 @@
+<!--
+ * @author: Zhexuan Gu
+ * @Date: 2025-11-01 16:15:58
+ * @LastEditTime: 2025-11-03 17:57:34
+ * @FilePath: /GUZhexuan-2024.github.io/_posts/2025-11-01-Foundations_of_Smooth_Optimization.md
+ * @Description: Please implement
+-->
 ---
 layout: post
 title: Foundations of Smooth Optimization
-subtitle: 每周一个优化算法之线搜索
+subtitle: 每周一个优化算法之光滑优化基础知识
 gh-repo: daattali/beautiful-jekyll
 tags: [Optimization for Data Analysis]
 comments: true
@@ -34,9 +41,12 @@ With the aforementioned definitions, the next challenge it to determine or judge
 
 Recall some basic knowledge first:
 
-- Integral. $\int_{0}^{1}\frac{\partial f(x+\gamma p)}{\partial \gamma}d\gamma = f(x+\gamma p)\big|_{0}^{1} = f(x+p) - f(x)$.
+- Integral. 
+  $$
+  \int_{0}^{1}\frac{\partial f(x+\gamma p)}{\partial \gamma}d\gamma = f(x+\gamma p)\big|_{0}^{1} = f(x+p) - f(x).
+  $$
 
-- Derictional Derivative. A comprehensive derivation can be found in [Line search](2025-09-03-Line_Search.md). Here, what we should know is that $\frac{\partial f(x+\gamma p)}{\partial \gamma} = \nabla f(x+\gamma p)^{\top}p$.
+- Directional Derivative. A comprehensive derivation can be found in [Line search](2025-09-03-Line_Search.md). Here, what we should know is that $\frac{\partial f(x+\gamma p)}{\partial \gamma} = \nabla f(x+\gamma p)^{\top}p$.
 
 ##### Theorem:
 Given a _continuously differential_ function $f: \mathbb{R}^{n} \rightarrow \mathbb{R}$, and given $x, p \in \mathbb{R}^{n}$, we have that
