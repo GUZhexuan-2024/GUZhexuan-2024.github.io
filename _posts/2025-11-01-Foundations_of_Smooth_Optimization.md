@@ -1,10 +1,3 @@
-<!--
- * @author: Zhexuan Gu
- * @Date: 2025-11-01 16:15:58
- * @LastEditTime: 2025-11-03 17:57:34
- * @FilePath: /GUZhexuan-2024.github.io/_posts/2025-11-01-Foundations_of_Smooth_Optimization.md
- * @Description: Please implement
--->
 ---
 layout: post
 title: Foundations of Smooth Optimization
