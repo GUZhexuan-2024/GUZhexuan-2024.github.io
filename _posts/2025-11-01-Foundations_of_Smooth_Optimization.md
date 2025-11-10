@@ -14,7 +14,7 @@ This new chapter is based on [Optimization for Data Analysis][1].
 
 ### Solutions to Optimization Problems
 
-Suppose that $f$ is a function mapping some domain $\mathcal{D} = \text{dom}(f) \subset \mathbb{R}^{n}$ to the real line $\mathbb{R}$. Some key definitions are defined as follows:
+Suppose that $f$ is a function mapping some domain $\mathcal{D} = \text{dom}(f) \subset \mathbb{R}^{n}$ to the real line $\mathbb{R}$. Some key definitions are defined as follow:
 
 1. **Local Minimizer**: $x^{\ast} \in \mathcal{D}$ is a _local minimizer_ of $f$ is there is a neighborhood $\mathcal{N}$ of $x^{\ast}$ such that $f(x) \ge f(x^{\ast})$ for all $x \in \mathcal{N} \cap \mathcal{D}$.
 
@@ -28,7 +28,7 @@ Suppose that $f$ is a function mapping some domain $\mathcal{D} = \text{dom}(f) 
 
 5. **Unique Minimizer**: $x^{\ast}$ is the _unique minimizer_ if it is the only global minimizer.
 
-With the aforementioned definitions, the next challenge it to determine or judge whether a particular point is a local or global solution. Therefore, the following contents mainly focus on how to formulate the conditions to help you achieve the goal.
+With the aforementioned definitions, the next challenge is to determine whether a particular point is a local or global solution. Therefore, the following contents mainly focus on how to formulate these conditions.
 
 ### Taylor's Theorem
 
@@ -39,10 +39,10 @@ Recall some basic knowledge first:
   \int_{0}^{1}\frac{\partial f(x+\gamma p)}{\partial \gamma}d\gamma = f(x+\gamma p)\big|_{0}^{1} = f(x+p) - f(x).
   $$
 
-- Directional Derivative. A comprehensive derivation can be found in [Line search](2025-09-03-Line_Search.md). Here, what we should know is that $\frac{\partial f(x+\gamma p)}{\partial \gamma} = \nabla f(x+\gamma p)^{\top}p$.
+- Directional Derivative. A comprehensive derivation can be found in [Line search](../_posts/2025-09-03-Line_Search.md). Here, what we should know is that $\frac{\partial f(x+\gamma p)}{\partial \gamma} = \nabla f(x+\gamma p)^{\top}p$.
 
 ##### Theorem:
-Given a _continuously differential_ function $f: \mathbb{R}^{n} \rightarrow \mathbb{R}$, and given $x, p \in \mathbb{R}^{n}$, we have that
+Given a _continuously differentiable_ function $f: \mathbb{R}^{n} \rightarrow \mathbb{R}$, and given $x, p \in \mathbb{R}^{n}$, we have that
 
 $$
 \begin{array}{ll}
@@ -59,7 +59,47 @@ f(x+p) &=  f(x) + \nabla f(x)^{\top}p + \frac{1}{2}p^{\top}\nabla^{2} f(x+\gamma
 \end{array}
 $$
 
-Sometimes the second equation in the _continuously differential_ case is called the mean-value theorem.
+Sometimes the second equation in the _continuously differentiable_ case is referred to as the mean value theorem. Using this theorem, we conclude that
+
+$$
+f(x + p) = f(x) + \nabla^{\top} f(x)p + \mathcal{o}(\|p\|).
+$$
+
+This equation states that the function value at a nearby point can be approximated by its linearization at $x$, with an error term that is little-o of $\|p\|$. We now briefly review the notations $\mathcal{O}(\cdot)$ and $\mathcal{o}(\cdot)$.
+
+Consider two sequences $\{\eta_k\}$ and $\{\epsilon_k\}$ with $\epsilon_k \to 0$ (or $\epsilon_k \to \infty$). We say $\eta_k = \mathcal{O}(\epsilon_k)$ if there exists a constant $M > 0$ such that $|\eta_k| \leq M |\epsilon_k|$ for all $k$ sufficiently large. In particular, if $|\eta_k| \leq |\epsilon_k|$ for all $k$, then $\eta_k = \mathcal{O}(\epsilon_k)$ with $M = 1$, so $\epsilon_k$ serves as an asymptotic upper bound for $\eta_k$. The same definition applies when $\epsilon_k \to \infty$.
+
+On the other hand, we write $\eta_k = \mathcal{o}(\epsilon_k)$ if $\frac{\eta_k}{\epsilon_k} \to 0$ as $k \to \infty$.
+
+We now prove the desired expansion:
+
+$$
+\begin{array}{ll}
+f(x+p) & = f(x) + \nabla f(x+\gamma p)^{\top}p ~~ \text{(Mean-value theorem)}         \\
+       &=  f(x) + \nabla f(x)^{\top}p +  (\nabla f(x+\gamma p) - \nabla f(x))^{\top}p \\
+       &=  f(x) + \nabla f(x)^{\top}p +  \mathcal{O}((\|\nabla f(x+\gamma p) - \nabla f(x))\| \|p\|) ~~ (\text{Cauchy-schwarz}: \langle a, b\rangle^{2} \le \|a\|^{2}\|b\|^{2})
+\end{array}
+$$
+
+To obtain the $\mathcal{o}(\|p\|)$ term, consider a sequence $\{p_k\}$ with $p_k \to 0$ as $k \to \infty$. Since $\nabla f$ is continuous at $x$ (as $f$ is continuously differentiable), we have
+
+$$
+\|\nabla f(x + \gamma p_k) - \nabla f(x)\| \to 0 \quad \text{as} \quad k \to \infty.
+$$
+
+Thus, the remainder term satisfies
+
+$$
+\frac{\mathcal{O}\left(\|\nabla f(x + \gamma p_k) - \nabla f(x)\| \cdot \|p_k\|\right)}{\|p_k\|} = \mathcal{O}\left(\|\nabla f(x + \gamma p_k) - \nabla f(x)\|\right) \to 0.
+$$
+
+Therefore,
+
+$$
+f(x + p) = f(x) + \nabla^{\top} f(x) p + \mathcal{o}(\|p\|),
+$$
+
+as $\|p\| \to 0$.
 
 
 
