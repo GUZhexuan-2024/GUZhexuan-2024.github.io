@@ -39,7 +39,7 @@ Recall some basic knowledge first:
   \int_{0}^{1}\frac{\partial f(x+\gamma p)}{\partial \gamma}d\gamma = f(x+\gamma p)\big|_{0}^{1} = f(x+p) - f(x).
   $$
 
-- Directional Derivative. A comprehensive derivation can be found in [Line search](../_posts/2025-09-03-Line_Search.md). Here, what we should know is that $\frac{\partial f(x+\gamma p)}{\partial \gamma} = \nabla f(x+\gamma p)^{\top}p$.
+- Directional Derivative. A comprehensive derivation can be found in [Line search](../2025-09-03-Line_Search.md). Here, what we should know is that $\frac{\partial f(x+\gamma p)}{\partial \gamma} = \nabla f(x+\gamma p)^{\top}p$.
 
 ##### Theorem:
 Given a _continuously differentiable_ function $f: \mathbb{R}^{n} \rightarrow \mathbb{R}$, and given $x, p \in \mathbb{R}^{n}$, we have that
@@ -67,7 +67,7 @@ $$
 
 This equation states that the function value at a nearby point can be approximated by its linearization at $x$, with an error term that is little-o of $\|p\|$. We now briefly review the notations $\mathcal{O}(\cdot)$ and $\mathcal{o}(\cdot)$.
 
-Consider two sequences $\{\eta_k\}$ and $\{\epsilon_k\}$ with $\epsilon_k \to 0$ (or $\epsilon_k \to \infty$). We say $\eta_k = \mathcal{O}(\epsilon_k)$ if there exists a constant $M > 0$ such that $|\eta_k| \leq M |\epsilon_k|$ for all $k$ sufficiently large. In particular, if $|\eta_k| \leq |\epsilon_k|$ for all $k$, then $\eta_k = \mathcal{O}(\epsilon_k)$ with $M = 1$, so $\epsilon_k$ serves as an asymptotic upper bound for $\eta_k$. The same definition applies when $\epsilon_k \to \infty$.
+Consider two sequences $\{\eta_k\}$ and $\{\epsilon_k\}$ with $\epsilon_k \to 0$ (or $\epsilon_k \to \infty$). We say $\eta_k = \mathcal{O}(\epsilon_k)$ if there exists a constant $M > 0$ such that $\eta_{k} \leq M \epsilon_{k}$ for all $k$ sufficiently large. In particular, if $\eta_{k} \leq \epsilon_{k}$ for all $k$, then $\eta_k = \mathcal{O}(\epsilon_k)$ with $M = 1$, so $\epsilon_k$ serves as an asymptotic upper bound for $\eta_k$. The same definition applies when $\epsilon_k \to \infty$.
 
 On the other hand, we write $\eta_k = \mathcal{o}(\epsilon_k)$ if $\frac{\eta_k}{\epsilon_k} \to 0$ as $k \to \infty$.
 
@@ -96,10 +96,8 @@ $$
 Therefore,
 
 $$
-f(x + p) = f(x) + \nabla^{\top} f(x) p + \mathcal{o}(\|p\|),
+f(x + p) = f(x) + \nabla^{\top} f(x) p + \mathcal{o}(\|p\|), \|p\| \to 0.
 $$
-
-as $\|p\| \to 0$.
 
 
 
