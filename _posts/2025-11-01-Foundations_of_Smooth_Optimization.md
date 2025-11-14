@@ -39,7 +39,7 @@ Recall some basic knowledge first:
   \int_{0}^{1}\frac{\partial f(x+\gamma p)}{\partial \gamma}d\gamma = f(x+\gamma p)\big|_{0}^{1} = f(x+p) - f(x).
   $$
 
-- Directional Derivative. A comprehensive derivation can be found in [Line search](../2025-09-03-Line_Search.md). Here, what we should know is that $\frac{\partial f(x+\gamma p)}{\partial \gamma} = \nabla f(x+\gamma p)^{\top}p$.
+- Directional Derivative. A comprehensive derivation can be found in [Line search](../2025-09-03-Line_Search). Here, what we should know is that $\frac{\partial f(x+\gamma p)}{\partial \gamma} = \nabla f(x+\gamma p)^{\top}p$.
 
 ##### Theorem:
 Given a _continuously differentiable_ function $f: \mathbb{R}^{n} \rightarrow \mathbb{R}$, and given $x, p \in \mathbb{R}^{n}$, we have that
@@ -59,7 +59,7 @@ f(x+p) &=  f(x) + \nabla f(x)^{\top}p + \frac{1}{2}p^{\top}\nabla^{2} f(x+\gamma
 \end{array}
 $$
 
-Sometimes the second equation in the _continuously differentiable_ case is referred to as the mean value theorem. Using this theorem, we conclude that
+Sometimes the second equation in the _continuously differentiable_ case is referred to as the mean value theorem. Using this theorem, we can conclude that
 
 $$
 f(x + p) = f(x) + \nabla^{\top} f(x)p + \mathcal{o}(\|p\|).
@@ -81,7 +81,7 @@ f(x+p) & = f(x) + \nabla f(x+\gamma p)^{\top}p ~~ \text{(Mean-value theorem)}   
 \end{array}
 $$
 
-To obtain the $\mathcal{o}(\|p\|)$ term, consider a sequence $\{p_k\}$ with $p_k \to 0$ as $k \to \infty$. Since $\nabla f$ is continuous at $x$ (as $f$ is continuously differentiable), we have
+To obtain the $\mathcal{o}(\|\|p\|\|)$ term, consider a sequence $\{p_k\}$ with $p_k \to 0$ as $k \to \infty$. Since $\nabla f$ is continuous at $x$ (as $f$ is continuously differentiable), we have
 
 $$
 \|\nabla f(x + \gamma p_k) - \nabla f(x)\| \to 0 \quad \text{as} \quad k \to \infty.
@@ -99,6 +99,42 @@ $$
 f(x + p) = f(x) + \nabla^{\top} f(x) p + \mathcal{o}(\|p\|), \|p\| \to 0.
 $$
 
+### Lipschitz constant $L$
+
+#### $L$-Lipschitz gradients
+
+$$
+\|\nabla f(x) - \nabla f(y)\| \le L \|x - y\|, ~~~\text{for all}~x, y \in \text{dom}(f).
+$$
+
+#### $L_{0}$-Lipschitz
+
+$$
+|f(x) - f(y)| \le L_{0} |x - y|, ~~~\text{for all}~x, y \in \text{dom}(f).
+$$
+
+We can derive some useful upper bound based on $L$-Lipschitz gradients.
+
+#### Lemma
+
+_Given an $L$-smooth function $f$, we have for any $x, y \in \text{dom}(f)$ that,_
+$$
+f(y) \le f(x) + \nabla f(x)^{\top}(y - x) + \frac{L}{2}\|y - x\|^{2}.
+$$
+That is function $f$ can be upper-bounded by a quadratic function. 
+
+#### Proof
+$$
+\begin{array}{ll}
+f(y)   & = f(x) + \int_{0}^{1}\nabla f(x+\gamma (y-x))^{\top}(y-x)d\gamma          \\
+f(y) - f(x) - \nabla f(x)^{\top}(y - x) &= \int_{0}^{1}\nabla f(x+\gamma (y-x))^{\top}(y-x)d\gamma - \nabla f(x)^{\top}(y - x) \\
+&= \int_{0}^{1}\nabla f(x+\gamma (y-x))^{\top}(y-x)d\gamma - \int_{0}^{1} \nabla f(x)^{\top}(y - x)d\gamma \\
+&= \int_{0}^{1}\nabla (f(x+\gamma (y-x)) - \nabla f(x))^{\top}(y-x)d\gamma \\
+&\le \int_{0}^{1}\| \nabla (f(x+\gamma (y-x)) - \nabla f(x))\| \|(y-x)\|d\gamma ~ \text{(Cauchy-schwarz)}  \\
+&\le \int_{0}^{1} L\gamma \| y-x \| \|(y-x)\|d\gamma  ~ \text{($L$-smooth)} \\
+&= \frac{L}{2}\|y-x\|^{2}.
+\end{array}
+$$
 
 
 [1]: https://icourse.club/uploads/files/bd85e2cdfb9463ca73fb2245b0f6097b3803b6e6.pdf
