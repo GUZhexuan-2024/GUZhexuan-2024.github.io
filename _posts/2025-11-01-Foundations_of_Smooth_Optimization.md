@@ -34,7 +34,7 @@ With the aforementioned definitions, the next challenge is to determine whether 
 
 Recall some basic knowledge first:
 
-- Integral. 
+- Integral.
   $$
   \int_{0}^{1}\frac{\partial f(x+\gamma p)}{\partial \gamma}d\gamma = f(x+\gamma p)\big|_{0}^{1} = f(x+p) - f(x).
   $$
@@ -42,6 +42,7 @@ Recall some basic knowledge first:
 - Directional Derivative. A comprehensive derivation can be found in [Line search](../2025-09-03-Line_Search). Here, what we should know is that $\frac{\partial f(x+\gamma p)}{\partial \gamma} = \nabla f(x+\gamma p)^{\top}p$.
 
 ##### Theorem:
+
 Given a _continuously differentiable_ function $f: \mathbb{R}^{n} \rightarrow \mathbb{R}$, and given $x, p \in \mathbb{R}^{n}$, we have that
 
 $$
@@ -115,15 +116,18 @@ $$
 
 We can derive some useful upper bound based on $L$-Lipschitz gradients.
 
-#### Lemma
+#### Lemma 1
 
 _Given an $L$-smooth function $f$, we have for any $x, y \in \text{dom}(f)$ that,_
+
 $$
 f(y) \le f(x) + \nabla f(x)^{\top}(y - x) + \frac{L}{2}\|y - x\|^{2}.
 $$
-That is function $f$ can be upper-bounded by a quadratic function. 
 
-#### Proof
+That is function $f$ can be upper-bounded by a quadratic function.
+
+#### Proof 1
+
 $$
 \begin{array}{ll}
 f(y)   & = f(x) + \int_{0}^{1}\nabla f(x+\gamma (y-x))^{\top}(y-x)d\gamma          \\
@@ -135,6 +139,74 @@ f(y) - f(x) - \nabla f(x)^{\top}(y - x) &= \int_{0}^{1}\nabla f(x+\gamma (y-x))^
 &= \frac{L}{2}\|y-x\|^{2}.
 \end{array}
 $$
+
+#### Lemma 2
+
+Suppose $f$ is twice continuously differentialble on $\mathbb{R}^{n}$. Then if $f$ is $L$-smooth, we have $\nabla^{2}f(x) \preceq LI$ for all $x$. Conversely, if $-LI \preceq \nabla^{2}f(x) \preceq LI$, then $f$ is $L$-smooth.  
+
+#### Proof 2
+
+According to the Taylor's theorem, 
+
+$$
+f(x + \alpha p) - f(x) - \alpha \nabla f(x)^{\top} p = \frac{1}{2}\alpha^{2}p^{\top}\nabla^{2}f(x + \gamma \alpha p)p.
+$$
+
+And it's easy to obtain from last lemma that,
+
+$$
+f(x+\alpha p) - f(x) -  \alpha \nabla f(x)^{\top}p  \le \frac{L}{2}\alpha^{2}\|p\|^{2}.
+$$
+
+With the above two formulas, we get,
+
+$$
+p^{\top}\nabla^{2}f(x + \gamma \alpha p)p \le L\|p\|^{2}.
+$$
+
+Let $\alpha \downarrow 0$, we can then prove all eigen values of $\nabla^{2}f(x)$ are bounded by $L$.
+
+##### Proof 2.1
+
+Since the Hessian matrix is symmetric, it has orthonormal eigen-decomposition,
+
+$$
+\begin{array}{ll}
+p^{\top}\nabla^{2}f(x)p &= p^{\top}Q^{\top}\Sigma Qp \\
+                        &= p^{\top} \begin{bmatrix}
+                                    q_{1} & q_{2} & \cdots q_{n}
+                                    \end{bmatrix}
+                                    \Sigma 
+                                    \begin{bmatrix}
+                                    q_{1}^{\top} \\ 
+                                    q_{2}^{\top} \\
+                                    \vdots \\
+                                    q_{n}^{\top}
+                                    \end{bmatrix}
+                                    p               \\
+                        &= \sum_{i=1}^{n} \sigma_{i} (\langle p, q_{i} \rangle)^{2}. \\
+\end{array}
+$$
+
+$p$ can be represented as the linear combination of the orthogonal basis,
+
+$$
+p = \sum_{i=1}^{n}a_{i}q_{i},
+$$
+
+therefore, $p^{\top}\nabla^{2}f(x)p$ reduces to $\sum_{i=1}^{n}\sigma_{i}a_{i}^{2}$. Apparently, we obtain the maximum value $\sigma_{\text{max}}a_{\text{max}}^{2}=\sigma_{\text{max}}\|p\|^{2}$ ,when $p$ is parallel to the eigenvector corresponds to the maximum eigenvalue.
+
+Now suppose that $-LI \preceq \nabla^{2}f(x) \preceq LI$ holds, so $\|\|\nabla^{2}f(x)\|\| \le L$ for all $x$. Then we have,
+
+$$
+\begin{array}{ll}
+\|\nabla f(y) - \nabla f(x)\| &= \|\int_{0}^{1}\nabla^{2}f(x + \gamma(y-x))(y-x)d\gamma\| \\
+&\le \int_{0}^{1} \| \nabla^{2}f(x + \gamma(y-x))\| \|(y-x)\| d\gamma \\
+&\le L\|y-x\|.
+\end{array}
+$$
+
+Proof completes.
 
 
 [1]: https://icourse.club/uploads/files/bd85e2cdfb9463ca73fb2245b0f6097b3803b6e6.pdf
