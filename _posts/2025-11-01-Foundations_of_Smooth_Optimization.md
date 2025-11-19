@@ -194,7 +194,7 @@ $$
 p = \sum_{i=1}^{n}a_{i}q_{i},
 $$
 
-therefore, $p^{\top}\nabla^{2}f(x)p$ reduces to $\sum_{i=1}^{n}\sigma_{i}a_{i}^{2}$. Apparently, we obtain the maximum value $\sigma_{\text{max}}a_{\text{max}}^{2}=\sigma_{\text{max}}\|p\|^{2}$ ,when $p$ is parallel to the eigenvector corresponds to the maximum eigenvalue.
+therefore, $p^{\top}\nabla^{2}f(x)p$ reduces to $\sum_{i=1}^{n}\sigma_{i}a_{i}^{2}$. Apparently, we obtain the maximum value $\sigma_{\text{max}}a_{\text{max}}^{2}=\sigma_{\text{max}}\|\|p\|\|^{2}$ ,when $p$ is parallel to the eigenvector corresponds to the maximum eigenvalue.
 
 Now suppose that $-LI \preceq \nabla^{2}f(x) \preceq LI$ holds, so $\|\|\nabla^{2}f(x)\|\| \le L$ for all $x$. Then we have,
 
@@ -207,6 +207,34 @@ $$
 $$
 
 Proof completes.
+
+### Convex Sets and Functions
+
+Convex functions play a significant role in optimization because it's easy to verify its optimality and such optima are guaranteed to be discovered within a resonable amount of computation.
+
+#### Convex Sets
+
+A convex set $\Omega \subset \mathbb{R}^{n}$ has the property that,
+
+$$
+x, y \in \Omega ~~ \Rightarrow (1 - \alpha)x + \alpha y \in \Omega ~~ \text{for all } ~ \alpha \in [0, 1].
+$$
+
+#### Convex Functions
+
+The defining property of a convex function is the following,
+
+$$
+f((1 - \alpha)x + \alpha y) \le (1 - \alpha)f(x) + \alpha f(y), ~~ \text{for all} ~ x, y \in \mathbb{R}^{n}, ~ \text{all} ~ \alpha \in [0, 1].
+$$
+
+The definition(property) means the line segment connecting $(x, f(x))$ and $(y, f(y))$ lies entirely above the graph of the function $f$. In other words, the _epigraph_ of $f$, defined as,
+
+$$
+\text{epi}~f := \{(x, t) \in \mathbb{R}^{n} \times \mathbb{R} | t \ge f(x)\},
+$$
+
+is a convex set.
 
 
 [1]: https://icourse.club/uploads/files/bd85e2cdfb9463ca73fb2245b0f6097b3803b6e6.pdf
