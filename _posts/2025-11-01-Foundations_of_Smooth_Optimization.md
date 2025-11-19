@@ -41,7 +41,7 @@ Recall some basic knowledge first:
 
 - Directional Derivative. A comprehensive derivation can be found in [Line search](../2025-09-03-Line_Search). Here, what we should know is that $\frac{\partial f(x+\gamma p)}{\partial \gamma} = \nabla f(x+\gamma p)^{\top}p$.
 
-##### Theorem:
+#### Theorem1
 
 Given a _continuously differentiable_ function $f: \mathbb{R}^{n} \rightarrow \mathbb{R}$, and given $x, p \in \mathbb{R}^{n}$, we have that
 
@@ -235,6 +235,33 @@ $$
 $$
 
 is a convex set.
+
+#### Theorem2
+
+Suppose that, in the general constrained optimization problem,
+
+$$
+\min_{x\in \Omega} f(x).
+$$
+
+The function $f$ is convex and the set $\Omega$ is closed and convex. We have following,
+
+1. Any local solution to the above problem is also a global solution.
+
+2. The set of global solutions is a convex set.
+
+#### Proof
+
+For the fisrt property. Suppose for contradiction that $x^{\ast} \in \Omega$ is a local solution but not a global solution, so there exists a point $\bar{x} \in \Omega$ such that $f(\bar{x}) < f(x^{\ast})$. Then, by convexity, we have for any $\alpha \in [0, 1]$ that,
+
+$$
+f(x^{\ast} + \alpha (\bar{x} - x^{\ast})) \le (1 - \alpha)f(x^{\ast}) + \alpha f(\bar{x}) < f(x^{\ast}).
+$$
+
+Therefore, for a sufficiently small $\alpha$, we indeed find a point $x^{\ast} + \alpha (\bar{x} - x^{\ast}) \in \Omega$ in the neiborhood of $x^{\ast}$ such that the function value is smaller than $f(x^{\ast})$. It contradicts the definition of a local minimizer.
+
+
+
 
 
 [1]: https://icourse.club/uploads/files/bd85e2cdfb9463ca73fb2245b0f6097b3803b6e6.pdf
