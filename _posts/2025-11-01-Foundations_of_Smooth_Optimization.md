@@ -294,5 +294,22 @@ $$
 
 (Hint: $\lim_{k \rightarrow \infty} \frac{o(\alpha_{k} \|\|y-x\|\|)}{\alpha_{k}} = \lim_{k \rightarrow \infty} \frac{o(\alpha_{k} \|\|y-x\|\|)}{\alpha_{k}\|\|y-x\|\|}\|y-x\| = 0$.)
 
+With this property, we can quickly conclude a useful and powerful theorem.
+
+#### Theorem3
+
+Suppose that $f$ is continuously differentiable and convex. Then
+if $\nabla f(x^{\ast}) = 0 $, then $x^{\ast}$ is the global minimizer.
+
+#### Proof
+
+if we set $x = x^{\ast}$. Using this inequality together with $\nabla f(x^{\ast}) = 0$, we have, for any $y$ that
+
+$$
+f(y)\ge f(x^{\ast}) + \nabla f(x^{\ast})^{\top}(y − x^{\ast})=f(x^{\ast}),
+$$
+
+so that $x^{\ast}$ is a global minimizer.
+
 
 [1]: https://icourse.club/uploads/files/bd85e2cdfb9463ca73fb2245b0f6097b3803b6e6.pdf
