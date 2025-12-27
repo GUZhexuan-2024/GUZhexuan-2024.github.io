@@ -78,7 +78,7 @@ $$
 \begin{array}{ll}
 f(x+p) & = f(x) + \nabla f(x+\gamma p)^{\top}p ~~ \text{(Mean-value theorem)}         \\
        &=  f(x) + \nabla f(x)^{\top}p +  (\nabla f(x+\gamma p) - \nabla f(x))^{\top}p \\
-       &=  f(x) + \nabla f(x)^{\top}p +  \mathcal{O}((\|\nabla f(x+\gamma p) - \nabla f(x))\| \|p\|) ~~ (\text{Cauchy-schwarz}: \langle a, b\rangle^{2} \le \|a\|^{2}\|b\|^{2})
+       &=  f(x) + \nabla f(x)^{\top}p +  \mathcal{O}((\|\nabla f(x+\gamma p) - \nabla f(x))\| \|p\|) ~~ (\text{Cauchy-Schwarz}: \langle a, b\rangle^{2} \le \|a\|^{2}\|b\|^{2})
 \end{array}
 $$
 
@@ -97,7 +97,7 @@ $$
 Therefore,
 
 $$
-f(x + p) = f(x) + \nabla^{\top} f(x) p + \mathcal{o}(\|p\|), \|p\| \to 0.
+f(x + p) = f(x) + \nabla f(x)^{\top} p + \mathcal{o}(\|p\|), \|p\| \to 0.
 $$
 
 ### Lipschitz constant $L$
@@ -146,7 +146,7 @@ Suppose $f$ is twice continuously differentialble on $\mathbb{R}^{n}$. Then if $
 
 #### Proof 2
 
-According to the Taylor's theorem, 
+According to the Taylor's theorem,
 
 $$
 f(x + \alpha p) - f(x) - \alpha \nabla f(x)^{\top} p = \frac{1}{2}\alpha^{2}p^{\top}\nabla^{2}f(x + \gamma \alpha p)p.
@@ -176,9 +176,9 @@ p^{\top}\nabla^{2}f(x)p &= p^{\top}Q^{\top}\Sigma Qp \\
                         &= p^{\top} \begin{bmatrix}
                                     q_{1} & q_{2} & \cdots q_{n}
                                     \end{bmatrix}
-                                    \Sigma 
+                                    \Sigma
                                     \begin{bmatrix}
-                                    q_{1}^{\top} \\ 
+                                    q_{1}^{\top} \\
                                     q_{2}^{\top} \\
                                     \vdots \\
                                     q_{n}^{\top}
@@ -252,16 +252,47 @@ The function $f$ is convex and the set $\Omega$ is closed and convex. We have fo
 
 #### Proof
 
-For the fisrt property. Suppose for contradiction that $x^{\ast} \in \Omega$ is a local solution but not a global solution, so there exists a point $\bar{x} \in \Omega$ such that $f(\bar{x}) < f(x^{\ast})$. Then, by convexity, we have for any $\alpha \in [0, 1]$ that,
+First property. Suppose for contradiction that $x^{\ast} \in \Omega$ is a local solution but not a global solution, so there exists a point $\bar{x} \in \Omega$ such that $f(\bar{x}) < f(x^{\ast})$. Then, by convexity, we have for any $\alpha \in [0, 1]$ that,
 
 $$
 f(x^{\ast} + \alpha (\bar{x} - x^{\ast})) \le (1 - \alpha)f(x^{\ast}) + \alpha f(\bar{x}) < f(x^{\ast}).
 $$
 
-Therefore, for a sufficiently small $\alpha$, we indeed find a point $x^{\ast} + \alpha (\bar{x} - x^{\ast}) \in \Omega$ in the neiborhood of $x^{\ast}$ such that the function value is smaller than $f(x^{\ast})$. It contradicts the definition of a local minimizer.
+Therefore, for a sufficiently small $\alpha$, we indeed find a point $x^{\ast} + \alpha (\bar{x} - x^{\ast}) \in \Omega$ in the neiborhood of $x^{\ast}$ such that its function value is smaller than $f(x^{\ast})$. It contradicts the definition of a local minimizer.
 
+Second property. Given any two global solutions $x^{\ast}$ and $\bar{x}$, what we have to show is that $x^{\ast} + \alpha (\bar{x} - x^{\ast})$ is also a global minimizer. Since $x^{\ast}, \bar{x} \in \Omega$ and $\Omega$ is a convex set. Clearly, $x^{\ast} + \alpha (\bar{x} - x^{\ast}) \in \Omega$. Additionally, by the convexity of the function,
 
+$$
+f(x^{\ast} + \alpha (\bar{x} - x^{\ast})) \le (1 - \alpha)f(x^{\ast}) + \alpha f(\bar{x}) = f(x^{\ast})
+$$
 
+And since $x^{\ast}$ is the global minimizer,
+
+$$
+f(x^{\ast} + \alpha (\bar{x} - x^{\ast})) \ge f(x^{\ast}).
+$$
+
+Therefore, $f(x^{\ast} + \alpha (\bar{x} - x^{\ast})) = f(x^{\ast})$ and $x^{\ast} + \alpha (\bar{x} - x^{\ast})$ is also a global minimizer.
+
+Apply the linear expansion property to the convex function, we will obtain,
+
+$$
+f(x + \alpha(y - x)) = f(x) + \alpha \nabla^{\top}f(x)(y-x) + o(\alpha \|y-x\|) \le (1-\alpha)f(x) + \alpha f(y),
+$$
+
+by some simple math, we can get,
+
+$$
+f(y) \ge f(x) + \nabla f(x)^{\top}(y-x) + \frac{o(\alpha \|y-x\|)}{\alpha}.
+$$
+
+Let $\alpha \downarrow 0$, the $o(1)$ term vanishs, so we finally obtain,
+
+$$
+f(y) \ge f(x) + \nabla f(x)^{\top}(y-x), ~~ \text{for any } ~ x, y \in \text{dom}(f).
+$$
+
+(Hint: $\lim_{k \rightarrow \infty} \frac{o(\alpha_{k} \|\|y-x\|\|)}{\alpha_{k}} = \lim_{k \rightarrow \infty} \frac{o(\alpha_{k} \|\|y-x\|\|)}{\alpha_{k}\|\|y-x\|\|}\|y-x\| = 0$.)
 
 
 [1]: https://icourse.club/uploads/files/bd85e2cdfb9463ca73fb2245b0f6097b3803b6e6.pdf
