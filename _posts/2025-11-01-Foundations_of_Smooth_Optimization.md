@@ -208,6 +208,30 @@ $$
 
 Proof completes.
 
+### Characterizing Minima of Smooth Functions
+
+#### Theorem2
+
+(_Necessary Conditions for Smooth Unconstrained Optimization_)
+
+- (a) _Suppose that $f$ is continuously differentiable. If $x^{\ast}$ is a local minimizer of the unconstrained problem, then $\nabla f(x^{\ast})=0$._
+
+- (b) _Suppose that $f$ is twice continuously differentiable. If $x^{\ast}$ is a local minimizer of the unconstrained problem, then $\nabla f(x^{\ast})=0$ and $\nabla^{2}f(x)$ is positive semidefinite._
+
+#### Proof
+
+We first prove (a). Suppose for contradiction that $\nabla f(x^{\ast})\neq 0$, and consider a step $-\alpha \nabla f(x^{\ast})$ away from $x^{\ast}$, where $\alpha$ is a small positive number.
+
+By the Taylor's theorem, we can obtain,
+
+$$
+f(x^{\ast} - \alpha \nabla f(x^{\ast})) = f(x^{\ast}) - \alpha \nabla f(x^{\ast} - \gamma \alpha \nabla f(x^{\ast}))^{\top}\nabla f(x^{\ast}),
+\mathrm{for~some~}\gamma \in (0, 1).
+$$
+
+Since $\nabla f$ is continuous, we know $\nabla f(x^{\ast} - \gamma \alpha \nabla f(x^{\ast})) \rightarrow \nabla f(x^{\ast})$ as $\alpha \rightarrow 0$.
+
+
 ### Convex Sets and Functions
 
 Convex functions play a significant role in optimization because it's easy to verify its optimality and such optima are guaranteed to be discovered within a resonable amount of computation.
@@ -292,7 +316,13 @@ $$
 f(y) \ge f(x) + \nabla f(x)^{\top}(y-x), ~~ \text{for any } ~ x, y \in \text{dom}(f).
 $$
 
-(Hint: $\lim_{k \rightarrow \infty} \frac{o(\alpha_{k} \|\|y-x\|\|)}{\alpha_{k}} = \lim_{k \rightarrow \infty} \frac{o(\alpha_{k} \|\|y-x\|\|)}{\alpha_{k}\|\|y-x\|\|}\|y-x\| = 0$.)
+(Hint: $\lim_{k \rightarrow \infty} \frac{o(\alpha_{k} \|\|y-x\|\|)}{\alpha_{k}} = \lim_{k \rightarrow \infty} \frac{o(\alpha_{k} \|\|y-x\|\|)}{\alpha_{k}\|\|y-x\|\|}\|\|y-x\|\| = 0$.)
+
+In the textbook, a more compact formula is provided. Denote $\eta_{k} = o(\alpha_{k} \|\|y-x\|\|)$, obviously, $\lim_{k\rightarrow \infty}\frac{\eta_{k}}{\alpha_{k} \|\|y-x\|\|} = \lim_{k\rightarrow \infty}\frac{\eta_{k}}{\alpha_{k}} = 0$ as $\|\|y-x\|\|$ is a constant. Thus, $\eta_{k} = o(\alpha_{k})$. And the above formulas can be simplified,
+
+$$
+f(y) \ge f(x) + \nabla f(x)^{\top}(y-x) + o(1).
+$$
 
 With this property, we can quickly conclude a useful and powerful theorem.
 
