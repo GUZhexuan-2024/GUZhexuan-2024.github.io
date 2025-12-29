@@ -60,13 +60,13 @@ f(x+p) &=  f(x) + \nabla f(x)^{\top}p + \frac{1}{2}p^{\top}\nabla^{2} f(x+\gamma
 \end{array}
 $$
 
-Sometimes the second equation in the _continuously differentiable_ case is referred to as the mean value theorem. Using this theorem, we can conclude that
+Sometimes the second equation in the _continuously differentiable_ case is referred as the mean value theorem. Using this theorem, we can conclude that
 
 $$
 f(x + p) = f(x) + \nabla^{\top} f(x)p + \mathcal{o}(\|p\|).
 $$
 
-This equation states that the function value at a nearby point can be approximated by its linearization at $x$, with an error term that is little-o of $\|p\|$. We now briefly review the notations $\mathcal{O}(\cdot)$ and $\mathcal{o}(\cdot)$.
+This equation states that the function value at a nearby point can be approximated by its linearization, with an error term that is little-o of $\|p\|$. We now briefly review the notations $\mathcal{O}(\cdot)$ and $\mathcal{o}(\cdot)$.
 
 Consider two sequences $\{\eta_k\}$ and $\{\epsilon_k\}$ with $\epsilon_k \to 0$ (or $\epsilon_k \to \infty$). We say $\eta_k = \mathcal{O}(\epsilon_k)$ if there exists a constant $M > 0$ such that $\eta_{k} \leq M \epsilon_{k}$ for all $k$ sufficiently large. In particular, if $\eta_{k} \leq \epsilon_{k}$ for all $k$, then $\eta_k = \mathcal{O}(\epsilon_k)$ with $M = 1$, so $\epsilon_k$ serves as an asymptotic upper bound for $\eta_k$. The same definition applies when $\epsilon_k \to \infty$.
 
@@ -91,7 +91,7 @@ $$
 Thus, the remainder term satisfies
 
 $$
-\frac{\mathcal{O}\left(\|\nabla f(x + \gamma p_k) - \nabla f(x)\| \cdot \|p_k\|\right)}{\|p_k\|} = \mathcal{O}\left(\|\nabla f(x + \gamma p_k) - \nabla f(x)\|\right) \to 0.
+\frac{\mathcal{O}\left(\|\nabla f(x + \gamma p_k) - \nabla f(x)\| \cdot \|p_k\|\right)}{\|p_k\|} = \mathcal{O}\left(\|\nabla f(x + \gamma p_k) - \nabla f(x)\|\right) \to 0 \quad \text{as} \quad k \to \infty.
 $$
 
 Therefore,
@@ -164,7 +164,7 @@ $$
 p^{\top}\nabla^{2}f(x + \gamma \alpha p)p \le L\|p\|^{2}.
 $$
 
-Let $\alpha \downarrow 0$, we can then prove all eigen values of $\nabla^{2}f(x)$ are bounded by $L$.
+Let $\alpha \downarrow 0$, we can prove all eigen values of $\nabla^{2}f(x)$ are bounded by $L$.
 
 ##### Proof 2.1
 
@@ -188,7 +188,7 @@ p^{\top}\nabla^{2}f(x)p &= p^{\top}Q^{\top}\Sigma Qp \\
 \end{array}
 $$
 
-$p$ can be represented as the linear combination of the orthogonal basis,
+$p$ can be represented as linear combination of the orthogonal basis,
 
 $$
 p = \sum_{i=1}^{n}a_{i}q_{i},
@@ -229,7 +229,19 @@ f(x^{\ast} - \alpha \nabla f(x^{\ast})) = f(x^{\ast}) - \alpha \nabla f(x^{\ast}
 \mathrm{for~some~}\gamma \in (0, 1).
 $$
 
-Since $\nabla f$ is continuous, we know $\nabla f(x^{\ast} - \gamma \alpha \nabla f(x^{\ast})) \rightarrow \nabla f(x^{\ast})$ as $\alpha \rightarrow 0$.
+Since $\nabla f$ is continuous, we know $\nabla f(x^{\ast} - \gamma \alpha \nabla f(x^{\ast})) \rightarrow \nabla f(x^{\ast})$ as $\alpha \rightarrow 0$. According to the definition of limit, for every $\epsilon > 0$, there exists a natural number $N$ such that for all $n > N$,
+
+$$
+\|\nabla f(x^{\ast} - \gamma \alpha_{n} \nabla f(x^{\ast})) - \nabla f(x^{\ast})\| < \epsilon.
+$$
+
+We can take $\epsilon = \frac{1}{2}\nabla f(x^{\ast})$ and thus $\nabla f(x^{\ast} - \gamma \alpha_{n} \nabla f(x^{\ast})) >  \frac{1}{2}\nabla f(x^{\ast})$. By the substitution, we can finally obtain,
+
+$$
+f(x^{\ast} - \alpha \nabla f(x^{\ast})) = f(x^{\ast}) - \frac{1}{2}\|\nabla f(x^{\ast})\|^{2} < f(x^{\ast}),
+$$
+
+for all positive and sufficiently small $\alpha$. Therefore, $x^{\ast}$ is not a local minimizer since there exists a point $x^{\ast} - \alpha \nabla f(x^{\ast})$ in the neighbor $\mathcal{N}$ of $x^{\ast}$ while the function value is smaller than $f(x^{\ast})$.
 
 
 ### Convex Sets and Functions
