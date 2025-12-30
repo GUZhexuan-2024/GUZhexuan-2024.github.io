@@ -41,7 +41,7 @@ Recall some basic knowledge first:
 
 - Directional Derivative. A comprehensive derivation can be found in [Line search](../2025-09-03-Line_Search). Here, what we should know is that $\frac{\partial f(x+\gamma p)}{\partial \gamma} = \nabla f(x+\gamma p)^{\top}p$.
 
-#### Theorem1
+#### Theorem 1
 
 Given a _continuously differentiable_ function $f: \mathbb{R}^{n} \rightarrow \mathbb{R}$, and given $x, p \in \mathbb{R}^{n}$, we have that
 
@@ -274,9 +274,9 @@ $$
 \end{array}
 $$
 
-Thus, by setting $\mathcal{N} = \{x^{\ast}+p | \|\|p\|\|< \rho\}$, we have found a neighborhood of $x^{\ast}$ such that $f(x) > f(x^{\ast})$ for all $x\in \mathcal{N}$ with $x \neq x^{\ast}$, hence satisfying the conditions for a strict local minimizer.
+Thus, by setting $\mathcal{N} = \{x^{\ast}+p, \|\|p\|\|< \rho\}$, we have found a neighborhood of $x^{\ast}$ such that $f(x) > f(x^{\ast})$ for all $x\in \mathcal{N}$ with $x \neq x^{\ast}$, hence satisfying the conditions for a strict local minimizer.
 
-<span style="color:blue">Notice Theorem 3 only guarantees a _local_ solution</span>.
+<span style="color:blue">Notice Theorem 3 only guarantees a *local* solution</span>.
 
 ### Convex Sets and Functions
 
@@ -386,6 +386,10 @@ f(y)\ge f(x^{\ast}) + \nabla f(x^{\ast})^{\top}(y − x^{\ast})=f(x^{\ast}),
 $$
 
 so that $x^{\ast}$ is a global minimizer.
+
+### Strongly Convex Functions
+
+
 
 
 [1]: https://icourse.club/uploads/files/bd85e2cdfb9463ca73fb2245b0f6097b3803b6e6.pdf
