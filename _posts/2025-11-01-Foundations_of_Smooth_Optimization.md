@@ -210,13 +210,13 @@ Proof completes.
 
 ### Characterizing Minima of Smooth Functions
 
-#### Theorem2
+#### Theorem 2
 
 (_Necessary Conditions for Smooth Unconstrained Optimization_)
 
 - (a) _Suppose that $f$ is continuously differentiable. If $x^{\ast}$ is a local minimizer of the unconstrained problem, then $\nabla f(x^{\ast})=0$._
 
-- (b) _Suppose that $f$ is twice continuously differentiable. If $x^{\ast}$ is a local minimizer of the unconstrained problem, then $\nabla f(x^{\ast})=0$ and $\nabla^{2}f(x)$ is positive semidefinite._
+- (b) _Suppose that $f$ is twice continuously differentiable. If $x^{\ast}$ is a local minimizer of the unconstrained problem, then $\nabla f(x^{\ast})=0$ and $\nabla^{2}f(x^{\ast})$ is positive semidefinite._
 
 #### Proof
 
@@ -243,6 +243,40 @@ $$
 
 for all positive and sufficiently small $\alpha$. Therefore, $x^{\ast}$ is not a local minimizer since there exists a point $x^{\ast} - \alpha \nabla f(x^{\ast})$ in the neighbor $\mathcal{N}$ of $x^{\ast}$ while the function value is smaller than $f(x^{\ast})$.
 
+Then we prove (b). Similarly, suppose $\nabla^{2}f(x)$ has a negative eigenvalue. Consequently, there exists a vector $v\in \mathbb{R}^{n}$ and a positive scalar $\lambda$ such that $v^{\top}\nabla^{2}f(x^{\ast})v=-\lambda$. Then we take $p=\alpha v$ and use the second-order Taylor's theorem,
+
+$$
+f(x^{\ast}+\alpha v) = f(x^{\ast}) + \alpha \underbrace{\nabla f(x^{\ast})^{\top}v}_{first-order~condition} + \frac{1}{2}\alpha^{2}v^{\top}\nabla^{2}f(x^{\ast} + \gamma\alpha v)v \quad \text{some}~\gamma \in (0,1).
+$$
+
+Again by the continuity, $v^{\top}\nabla^{2}f(x^{\ast} + \gamma\alpha v)v < -\frac{1}{2}\lambda$ for all sufficiently small $\alpha$. Therefore,
+
+$$
+f(x^{\ast}+\alpha v) = f(x^{\ast}) - \frac{1}{4}\lambda \alpha^{2} < f(x^{\ast}),
+$$
+
+and $x^{\ast}$ is not a local minimizer.
+
+#### Theorem 3
+
+(_Sufficient Conditions for Smooth Unconstrained Optimization_)
+
+Suppose that $f$ is twice continuously differentiable and that, for some $x^{\ast}$, we have $\nabla f(x^{\ast})=0$, and $\nabla^{2}f(x^{\ast})$ is positive definite. Then $x^{\ast}$ is a strict local minimizer.
+
+#### Proof
+
+Define a radius $\rho$ sufficiently small and positive such that the eigenvalues of $\nabla^{2}f(x^{\ast} + \gamma p)$ are bounded below by some positive number $\epsilon$, for all $p\in \mathbb{R}^{n}$ with $\|\|p\|\| \le \rho$ and all $\gamma \in (0, 1)$. Again by the second-order Taylor's theorem,
+
+$$
+\begin{array}{ll}
+  f(x^{\ast} + p) &= f(x^{\ast}) + \nabla f(x^{\ast})^{\top}p +  \frac{1}{2}p^{\top}\nabla^{2}f(x^{\ast}+\gamma p)p \\
+  &\ge f(x^{\ast}) + \frac{1}{2}\epsilon \|p\|^{2}.
+\end{array}
+$$
+
+Thus, by setting $\mathcal{N} = \{x^{\ast}+p | \|\|p\|\|< \rho\}$, we have found a neighborhood of $x^{\ast}$ such that $f(x) > f(x^{\ast})$ for all $x\in \mathcal{N}$ with $x \neq x^{\ast}$, hence satisfying the conditions for a strict local minimizer.
+
+<span style="color:blue">Notice Theorem 3 only guarantees a _local_ solution</span>.
 
 ### Convex Sets and Functions
 
@@ -272,7 +306,7 @@ $$
 
 is a convex set.
 
-#### Theorem2
+#### Theorem 4
 
 Suppose that, in the general constrained optimization problem,
 
@@ -338,7 +372,7 @@ $$
 
 With this property, we can quickly conclude a useful and powerful theorem.
 
-#### Theorem3
+#### Theorem 5
 
 Suppose that $f$ is continuously differentiable and convex. Then
 if $\nabla f(x^{\ast}) = 0 $, then $x^{\ast}$ is the global minimizer.
