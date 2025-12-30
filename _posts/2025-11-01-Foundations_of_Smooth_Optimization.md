@@ -374,8 +374,7 @@ With this property, we can quickly conclude a useful and powerful theorem.
 
 #### Theorem 5
 
-Suppose that $f$ is continuously differentiable and convex. Then
-if $\nabla f(x^{\ast}) = 0 $, then $x^{\ast}$ is the global minimizer.
+Suppose that $f$ is continuously differentiable and convex. Then if $\nabla f(x^{\ast}) = 0 $, then $x^{\ast}$ is the global minimizer.
 
 #### Proof
 
@@ -389,7 +388,35 @@ so that $x^{\ast}$ is a global minimizer.
 
 ### Strongly Convex Functions
 
+For a function $f$ that is continuously differentiable and also convex. If there exists a value $m > 0$ such that
 
+$$
+f((1-\alpha)x+\alpha y) \le (1-\alpha)f(x)+\alpha f(y) - \frac{1}{2}m\alpha(1-\alpha)\|x-y\|_{2}^{2},
+$$
 
+for all $x$ and $y$ in the domain of $f$, we say $f$ is _strongly convex with modulus of convexity $m$_. With similar derivations, we can obtain,
+
+$$
+f(y) \ge f(x) + \nabla f(x)^{\top}(y-x) + \frac{m}{2}\|y-x\|^{2}.
+$$
+
+This inequality complements the inequality satisfied by functions with smooth gradients. When the gradients are smooth, a function can be upper-bounded by a quadratic that takes the value $f(x)$ at $x$. When the function is strongly convex, it can be _lower-bounded_ by a quadratic that takes the value $f(x)$ at $x$.
+
+#### Theorem 6
+
+Suppose that $f$ is continuously differentiable and strongly convex. Then if $\nabla f(x^{\ast}) = 0 $, then $x^{\ast}$ is the **unique** global minimizer of $f$.
+
+The proof is quite simple, we can set $x=x^{\ast}$ and obtain
+
+$$
+f(y) \ge f(x^{\ast}) +\frac{m}{2}\|y-x^{\ast}\|^{2}.
+$$
+
+#### Lemma
+
+Suppose that f is twice continuously differentiable on $\mathbb{R}^{n}$. Then
+$f$ has modulus of convexity $m$ if and only if $\nabla^{2} f(x)\succeq mI$ for all $x$.
+
+The proof is quite similar to Proof 2.
 
 [1]: https://icourse.club/uploads/files/bd85e2cdfb9463ca73fb2245b0f6097b3803b6e6.pdf
