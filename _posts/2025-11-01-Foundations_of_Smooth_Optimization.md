@@ -247,7 +247,7 @@ for all positive and sufficiently small $\alpha$. Therefore, $x^{\ast}$ is not a
 Then we prove (b). Similarly, suppose $\nabla^{2}f(x^{\ast})$ has a negative eigenvalue. Consequently, there exists a vector $v\in \mathbb{R}^{n}$ and a positive scalar $\lambda$ such that $v^{\top}\nabla^{2}f(x^{\ast})v=-\lambda$. Then we take $p=\alpha v$ and use the second-order Taylor's theorem,
 
 $$
-f(x^{\ast}+\alpha v) = f(x^{\ast}) + \alpha \underbrace{\nabla f(x^{\ast})^{\top}v}_{first-order~condition} + \frac{1}{2}\alpha^{2}v^{\top}\nabla^{2}f(x^{\ast} + \gamma\alpha v)v \quad \text{some}~\gamma \in (0,1).
+f(x^{\ast}+\alpha v) = f(x^{\ast}) + \alpha \underbrace{\nabla f(x^{\ast})^{\top}v}_{first-order~condition} + \frac{1}{2}\alpha^{2}v^{\top}\nabla^{2}f(x^{\ast} + \gamma\alpha v)v, \quad \text{some}~\gamma \in (0,1).
 $$
 
 Again by the continuity, $v^{\top}\nabla^{2}f(x^{\ast} + \gamma\alpha v)v < -\frac{1}{2}\lambda$ for all sufficiently small $\alpha$. Therefore,
