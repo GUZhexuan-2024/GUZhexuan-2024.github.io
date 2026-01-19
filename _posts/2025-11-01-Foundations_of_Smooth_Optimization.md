@@ -401,7 +401,7 @@ $$
 f(y) \ge f(x) + \nabla f(x)^{\top}(y-x) + \frac{m}{2}\|y-x\|^{2}.
 $$
 
-This inequality complements the inequality satisfied by functions with smooth gradients. When the gradients are smooth, a function can be upper-bounded by a quadratic that takes the value $f(x)$ at $x$. When the function is strongly convex, it can be _lower-bounded_ by a quadratic that takes the value $f(x)$ at $x$.
+This inequality complements the inequality satisfied by functions with smooth gradients. When the gradients are smooth, a function can be <span style="color:red">upper-bounded</span> by a quadratic that takes the value $f(x)$ at $x$. When the function is strongly convex, it can be _<span style="color:red">lower-bounded</span>_ by a quadratic that takes the value $f(x)$ at $x$.
 
 #### Theorem 6
 
