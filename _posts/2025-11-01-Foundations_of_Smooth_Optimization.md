@@ -357,7 +357,7 @@ $$
 f(y) \ge f(x) + \nabla f(x)^{\top}(y-x) + \frac{o(\alpha \|y-x\|)}{\alpha}.
 $$
 
-Let $\alpha \downarrow 0$, the $o(1)$ term vanishs, so we finally obtain,
+Let $\alpha \downarrow 0$, we can finally obtain,
 
 $$
 f(y) \ge f(x) + \nabla f(x)^{\top}(y-x), ~~ \text{for any } ~ x, y \in \text{dom}(f).
@@ -375,11 +375,11 @@ With this property, we can quickly conclude a useful and powerful theorem.
 
 #### Theorem 5
 
-Suppose that $f$ is continuously differentiable and convex. Then if $\nabla f(x^{\ast}) = 0 $, then $x^{\ast}$ is the global minimizer.
+Suppose that $f$ is continuously differentiable and convex. Then if $\nabla f(x^{\ast}) = 0 $, $x^{\ast}$ is the global minimizer.
 
 #### Proof
 
-if we set $x = x^{\ast}$. Using this inequality together with $\nabla f(x^{\ast}) = 0$, we have, for any $y$ that
+if we set $x = x^{\ast}$. Using the above inequality together with $\nabla f(x^{\ast}) = 0$, we have, for any $y$ that
 
 $$
 f(y)\ge f(x^{\ast}) + \nabla f(x^{\ast})^{\top}(y − x^{\ast})=f(x^{\ast}),
