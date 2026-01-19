@@ -53,6 +53,7 @@ f(x+p) &=  f(x) + \nabla f(x+\gamma p)^{\top}p, ~ \text{some}~\gamma \in (0,1). 
 $$
 
 If $f$ is _twice continuously differentiable_, we have
+
 $$
 \begin{array}{ll}
 \nabla f(x+p) & = \nabla f(x) + \int_{0}^{1}\nabla^{2} f(x+\gamma p)pd\gamma,    \\
@@ -66,7 +67,7 @@ $$
 f(x + p) = f(x) + \nabla^{\top} f(x)p + \mathcal{o}(\|p\|).
 $$
 
-This equation states that the function value at a nearby point can be approximated by its linearization, with an error term that is little-o of $\|p\|$. We now briefly review the notations $\mathcal{O}(\cdot)$ and $\mathcal{o}(\cdot)$.
+This equation states that the function value at a nearby point can be approximated by its linearization, with an error term that is little-o of $\|\|p\|\|$. We now briefly review the notations $\mathcal{O}(\cdot)$ and $\mathcal{o}(\cdot)$.
 
 Consider two sequences $\{\eta_k\}$ and $\{\epsilon_k\}$ with $\epsilon_k \to 0$ (or $\epsilon_k \to \infty$). We say $\eta_k = \mathcal{O}(\epsilon_k)$ if there exists a constant $M > 0$ such that $\eta_{k} \leq M \epsilon_{k}$ for all $k$ sufficiently large. In particular, if $\eta_{k} \leq \epsilon_{k}$ for all $k$, then $\eta_k = \mathcal{O}(\epsilon_k)$ with $M = 1$, so $\epsilon_k$ serves as an asymptotic upper bound for $\eta_k$. The same definition applies when $\epsilon_k \to \infty$.
 
