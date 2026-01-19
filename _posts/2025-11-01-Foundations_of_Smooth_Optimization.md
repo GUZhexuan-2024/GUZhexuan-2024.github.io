@@ -115,7 +115,7 @@ $$
 |f(x) - f(y)| \le L_{0} |x - y|, ~~~\text{for all}~x, y \in \text{dom}(f).
 $$
 
-We can derive some useful upper bound based on $L$-Lipschitz gradients.
+We can derive a useful upper bound based on $L$-Lipschitz gradients.
 
 #### Lemma 1
 
@@ -143,7 +143,7 @@ $$
 
 #### Lemma 2
 
-Suppose $f$ is twice continuously differentialble on $\mathbb{R}^{n}$. Then if $f$ is $L$-smooth, we have $\nabla^{2}f(x) \preceq LI$ for all $x$. Conversely, if $-LI \preceq \nabla^{2}f(x) \preceq LI$, then $f$ is $L$-smooth.  
+Suppose $f$ is twice continuously differentiable on $\mathbb{R}^{n}$. Then if $f$ is $L$-smooth, we have $\nabla^{2}f(x) \preceq LI$ for all $x$. Conversely, if $-LI \preceq \nabla^{2}f(x) \preceq LI$, then $f$ is $L$-smooth.  
 
 #### Proof 2
 
@@ -169,7 +169,7 @@ Let $\alpha \downarrow 0$, we can prove all eigen values of $\nabla^{2}f(x)$ are
 
 ##### Proof 2.1
 
-Since the Hessian matrix is symmetric, it has orthonormal eigen-decomposition,
+Since the Hessian matrix is symmetric, it has orthogonal eigen-decomposition,
 
 $$
 \begin{array}{ll}
@@ -230,7 +230,7 @@ f(x^{\ast} - \alpha \nabla f(x^{\ast})) = f(x^{\ast}) - \alpha \nabla f(x^{\ast}
 \mathrm{for~some~}\gamma \in (0, 1).
 $$
 
-Since $\nabla f$ is continuous, we know $\nabla f(x^{\ast} - \gamma \alpha \nabla f(x^{\ast})) \rightarrow \nabla f(x^{\ast})$ as $\alpha \rightarrow 0$. According to the definition of limit, for every $\epsilon > 0$, there exists a natural number $N$ such that for all $n > N$,
+Since $\nabla f$ is continuous, we know $\nabla f(x^{\ast} - \gamma \alpha \nabla f(x^{\ast})) \rightarrow \nabla f(x^{\ast})$ as $\alpha \rightarrow 0$. According to the definition of limit: for every $\epsilon > 0$, there exists a natural number $N$ such that for all $n > N$,
 
 $$
 \|\nabla f(x^{\ast} - \gamma \alpha_{n} \nabla f(x^{\ast})) - \nabla f(x^{\ast})\| < \epsilon.
@@ -239,7 +239,7 @@ $$
 We can take $\epsilon = \frac{1}{2}\nabla f(x^{\ast})$ and thus $\nabla f(x^{\ast} - \gamma \alpha_{n} \nabla f(x^{\ast})) >  \frac{1}{2}\nabla f(x^{\ast})$. By the substitution, we can finally obtain,
 
 $$
-f(x^{\ast} - \alpha \nabla f(x^{\ast})) = f(x^{\ast}) - \frac{1}{2}\|\nabla f(x^{\ast})\|^{2} < f(x^{\ast}),
+f(x^{\ast} - \alpha \nabla f(x^{\ast})) = f(x^{\ast}) - \frac{\alpha}{2}\|\nabla f(x^{\ast})\|^{2} < f(x^{\ast}),
 $$
 
 for all positive and sufficiently small $\alpha$. Therefore, $x^{\ast}$ is not a local minimizer since there exists a point $x^{\ast} - \alpha \nabla f(x^{\ast})$ in the neighbor $\mathcal{N}$ of $x^{\ast}$ while the function value is smaller than $f(x^{\ast})$.
