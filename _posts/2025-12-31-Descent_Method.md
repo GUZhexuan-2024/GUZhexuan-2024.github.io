@@ -31,7 +31,7 @@ $$
 x_{k+1} = x_{k} - \alpha_{k}\nabla f(x_{k}),\quad k=1,2,3,...
 $$
 
-**<span color=style="color:green"> But how to determine the step length $\alpha_{k}$?</span>**
+<span style="color:green"> <strong>But how to determine the step length $\alpha_{k}$?</strong> </span>
 
 It's simple if we are dealing with the $L$-smooth function. Recall the property of $L$-smooth function,
 
