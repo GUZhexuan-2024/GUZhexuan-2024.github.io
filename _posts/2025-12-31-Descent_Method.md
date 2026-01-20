@@ -47,4 +47,47 @@ $$
 
 which measures the amount of decrease. Depend on this fundamental inequality and other assumptions of $f$, we will derive a variety of different convergence rates in the following sections.
 
+#### Genral Case
 
+In this case, we assume $f$ has a global lower bound. That is, we assume there's a value $\bar{f}$ that satisfies,
+
+$$
+f(x) \ge \bar{f},\quad \mathrm{for~all~}x.
+$$
+
+Then we can sum the inequality we obtain from the last section over $k$,
+
+$$
+\begin{cases}
+    f(x_{1}) \le f(x_{0}) - \frac{1}{2L}\|\nabla f(x_{0})\|^{2}, \\
+    f(x_{2}) \le f(x_{1}) - \frac{1}{2L}\|\nabla f(x_{1})\|^{2}, \\
+    \vdots \\
+    f(x_{T}) \le f(x_{T-1}) - \frac{1}{2L}\|\nabla f(x^{T-1})\|{2}. \\
+\end{cases}
+$$
+
+And we finally get,
+
+$$
+f(x_{T}) \le f(x_{0}) - \frac{1}{2L}\sum_{k=0}^{T-1}\|\nabla f(x_{k})\|^{2}.
+$$
+
+Since $\bar{f} \le f(x_{T})$, we have
+
+$$
+\sum_{k=0}^{T-1}\|\nabla f(x_{k})\|^{2} \le 2L(f(x_{0}) - \bar{f})
+$$
+
+which implies that $\lim_{T\rightarrow \infty}\|\|\nabla f(x_{T})\|\| = 0$ (<span style="color:red">If an infinite series $\sum a_{n}$ converges, then the terms $a_{n}$ must approach zero as $n$ goes to infinity</span>). Moreover, we have
+
+$$
+\min_{0\le k \le T-1}\|\nabla f(x_{k})\|^{2} \le \frac{1}{T}\sum_{k=0}^{T-1}\|\nabla f(x_{k})\|^{2}  \le \frac{2L\left[f(x_{0}) - \bar{f}\right]}{T}.
+$$
+
+Thus, we have shown that after $T$ steps of steepest descent, we can find a point $x$ satisfying
+
+$$
+\min_{0\le k \le T-1}\|\nabla f(x_{k})\| \le \sqrt{\frac{2L\left[f(x_{0}) - \bar{f}\right]}{T}}.
+$$
+
+Note that this convergence rate is slow and tells us only that we will find a point $x_{k}$ that is nearly stationary. We need to assume stronger properties of $f$ to guarantee faster convergence and global optimality.
