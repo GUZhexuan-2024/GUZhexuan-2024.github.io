@@ -18,7 +18,7 @@ Happy New Year!
 In this section, we mainly consider the unconstrained optimization of a **smooth convex** (gradient can be evaluated at arbitrary point) function:
 
 $$
-\min_{x\in \mathbf{R}^{n}} f(x).
+\min_{x\in \mathbb{R}^{n}} f(x).
 $$
 
 Readers may refer to [Line search](../2025-09-03-Line_Search) first to have a big picture about what we're going to introduce in this blog. Now we first step into the simplest descent direction, steepest descent direction.
@@ -91,3 +91,54 @@ $$
 $$
 
 Note that this convergence rate is slow and tells us only that we will find a point $x_{k}$ that is nearly stationary. We need to assume stronger properties of $f$ to guarantee faster convergence and global optimality.
+
+#### Convex Case
+
+##### Theorem 1
+
+Suppose that $f$ is convex and $L$-smooth, and suppose that the problem $\min_{x\in \mathbb{R}^{n}} f(x)$ has a solution $x^{\ast}$. Define $f^{\ast}:= f(x^{\ast})$. Then the steepest-descent method with steplength $\alpha_{k} \equiv \frac{1}{L}$ generates a sequence $\{x_{k}\}_{k=0}^{\infty}$ that satisfies,
+
+$$
+f(x_{T}) - f^{\ast} \le \frac{L}{2T}\|x_{0} - x^{\ast}\|^{2},\quad T = 1,2,3...
+$$
+
+##### Proof 1
+
+According to the property of the convex function, we have $f(x^{\ast}) \ge f(x) + \nabla f(x)^{\top}(x-x^{\ast})$. Thus, we have,
+
+$$
+\begin{array}{ll}
+f(x_{k+1}) &\le f(x_{k}) - \frac{1}{2L}\|\nabla f(x_{k})\|^{2} \\
+           &\le f(x^{\ast}) - \nabla f(x_{k})^{\top}(x_{k} - x^{\ast}) - \frac{1}{2L}\|\nabla f(x_{k})\|^{2} \\
+           &= f(x^{\ast}) + \frac{L}{2}\left( \|x_{k}-x^{\ast}\|^{2} -\|x_{k}-x^{\ast} - \frac{1}{L}\nabla f(x_{k})\|^{2} \right) \\
+           &= f(x^{\ast}) + \frac{L}{2}\left( \|x_{k}-x^{\ast}\|^{2}- \|x_{k+1}-x^{\ast}\|^{2} \right).
+\end{array}
+$$
+
+Then similarly, we can sum over $k$,
+
+$$
+\begin{cases}
+    f(x_{1}) \le f(x^{\ast}) + \frac{L}{2}\left( \|x_{0}-x^{\ast}\|^{2}- \|x_{1}-x^{\ast}\|^{2} \right), \\
+    f(x_{2}) \le f(x^{\ast}) + \frac{L}{2}\left( \|x_{1}-x^{\ast}\|^{2}- \|x_{2}-x^{\ast}\|^{2} \right), \\
+    \vdots \\
+    f(x_{T}) \le f(x^{\ast}) + \frac{L}{2}\left( \|x_{T-1}-x^{\ast}\|^{2}- \|x_{T}-x^{\ast}\|^{2} \right), \\
+\end{cases}
+$$
+
+and obtain,
+
+$$
+\sum_{k=0}^{T-1}(f(x_{k})-f(x^{\ast})) \le \frac{L}{2}\left(\|x_{0}-x^{\ast}\|^{2} - \|x_{T}-x^{\ast}\|^{2}\right) \le \frac{L}{2}\|x_{0}-x^{\ast}\|^{2}.
+$$
+
+Since $\{f(x_{k})\}$ is a nonincreasing sequence, we have
+
+$$
+f(x_{T}) - f(x^{\ast}) \le \frac{1}{T}\sum_{k=0}^{T-1}(f(x_{k})-f(x^{\ast})) \le \frac{L}{2T}\|x_{0}-x^{\ast}\|^{2}.
+$$
+
+<span style="color:blue">Proof complete.</span>
+
+#### Strongly Convex Case
+
