@@ -10,7 +10,7 @@ author: GU Zhexuan
 
 ### Preface
 
-Happy New Year!
+Happy New Year! This new chapter is based on [Optimization for Data Analysis][1].
 ![happy new year](../assets/img/s-l1600.jpg)
 
 ### Main idea
@@ -62,7 +62,7 @@ $$
     f(x_{1}) \le f(x_{0}) - \frac{1}{2L}\|\nabla f(x_{0})\|^{2}, \\
     f(x_{2}) \le f(x_{1}) - \frac{1}{2L}\|\nabla f(x_{1})\|^{2}, \\
     \vdots \\
-    f(x_{T}) \le f(x_{T-1}) - \frac{1}{2L}\|\nabla f(x^{T-1})\|{2}. \\
+    f(x_{T}) \le f(x_{T-1}) - \frac{1}{2L}\|\nabla f(x_{T-1})\|{2}. \\
 \end{cases}
 $$
 
@@ -142,3 +142,64 @@ $$
 
 #### Strongly Convex Case
 
+Before diving into the details of the convergence analysis, we first talk about a simple fact. 
+
+**Any convex function can be perturbed to form a stronly convex function by adding any small positive multiple of the squared Euclidean norm. In fact, if $f$ is any $L$-smooth function, then**
+
+$$
+f_{\mu}(x) = f(x) + \mu \|x\|^{2}
+$$
+
+**is stronly convex for $\mu$ large enough.**
+
+##### Proof 2
+
+The convex case is straightforward to prove. To prove $f_{\mu}(x)$ is strongly convex, we need to establish:
+
+$$
+\begin{array}{ll}
+    f_{\mu}(y) &\ge f_{\mu}(x) + \nabla f_{\mu}(x)^{\top}(y-x) + \frac{m}{2}\|y-x\|^{2}, \\
+    f(y) + \mu \|y\|^{2} &\ge f(x) + \mu \|x\|^{2} + \langle \nabla f(x) + 2\mu x, y-x\rangle + \frac{m}{2}\|y-x\|^{2}, \\
+    f(y) &\ge f(x) +  \langle \nabla f(x), y-x\rangle + (\frac{m}{2}-\mu)\|y-x\|^{2}.
+\end{array}
+$$
+
+By convexity of $f$,
+
+$$
+f(y) \ge f(x) +  \langle \nabla f(x), y-x\rangle
+$$
+
+for all $x, y$. Thus, for any $\mu > 0$, setting $m=2\mu$ satisfies the inequality and $f_{\mu}(x)$ is therefore $2\mu$-strongly convex.
+
+For a general $L$-smooth function $f$, we use definition of $L$-smoothness and Cauchy-Schwarz inequality to derive,
+
+$$
+\langle \nabla f(y) - \nabla f(x),y - x \rangle \ge -\|\nabla f(y) - \nabla f(x)\| \|y - x\| \ge -L \|y - x\|^{2}.
+$$
+
+Now compute the new term,
+
+$$
+\begin{array}{ll}
+\langle \nabla f_{\mu}(y) - \nabla f_{\mu}(x),y - x \rangle &= \langle \nabla f(y) - \nabla f(x),y - x \rangle  + 2\mu \|y - x\|^{2} \\
+& \ge (2\mu - L) \|y - x\|^{2}.
+\end{array}
+$$
+
+Recall strong convexity is equavalent to the condition,
+
+$$
+\begin{array}{ll}
+    f_{\mu}(y) &\ge f_{\mu}(x) + \nabla f_{\mu}(x)^{\top}(y-x) + \frac{m}{2}\|y-x\|^{2},  \\
+    f_{\mu}(x) &\ge f_{\mu}(y) + \nabla f_{\mu}(y)^{\top}(x-y) + \frac{m}{2}\|x-y\|^{2},  \\
+    \langle \nabla f_{\mu}(y) - \nabla f_{\mu}(x),y - x \rangle &\ge m \|y - x\|^{2}.
+\end{array}
+$$
+
+Therefore, when $\mu > \frac{L}{2}$, we can choose $m = 2\mu-L > 0$, which guarentees that $f_{\mu}(x)$ is $m$-strongly convex.
+
+<span style="color:blue">Proof complete</span>.
+
+
+[1]: https://icourse.club/uploads/files/bd85e2cdfb9463ca73fb2245b0f6097b3803b6e6.pdf
