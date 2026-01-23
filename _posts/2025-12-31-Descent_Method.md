@@ -42,7 +42,7 @@ $$
 Then instead of focusing on the original function, alternatively, we can minimize its upper bound which is a quadratic function of $\alpha$ given that $d = -\nabla f(x)$. Use the high school math, we can derive the minimizer is $\alpha = 1/L$. We can plug in these values and obtain an inequality,
 
 $$
-f(x_{k+1})=f(x_{k}-\frac{1}{L}\nabla f(x_{k})) \le f(x_{k})-\frac{1}{2L}\|\nabla f(x)\|^{2},
+f(x_{k+1})=f(x_{k}-\frac{1}{L}\nabla f(x_{k})) \le f(x_{k})-\frac{1}{2L}\|\nabla f(x_{k})\|^{2},
 $$
 
 which measures the amount of decrease. Depend on this fundamental inequality and other assumptions of $f$, we will derive a variety of different convergence rates in the following sections.
@@ -200,6 +200,77 @@ $$
 Therefore, when $\mu > \frac{L}{2}$, we can choose $m = 2\mu-L > 0$, which guarentees that $f_{\mu}(x)$ is $m$-strongly convex.
 
 <span style="color:blue">Proof complete</span>.
+
+We are in favor of strongly convex functions because of its nice properties. First, the norm of the gradient can provide information about far away we are from optimality. Given the property of the stronlgy convex function $f$,
+
+$$
+f(z) \ge f(x) + \nabla f(x)^{\top}(z - x) + \frac{m}{2}\|z-x\|^{2}
+$$
+
+and suppose we are minimizing both sides over $z$. Obviously, the minimizer on the left-hand side is attained at $z=x^{\ast}$, while on the right-hand side, it's attained at $z=x - \frac{1}{m}\nabla f(x)$. Plug in the minimizers, we obtain
+
+$$
+\begin{array}{ll}
+    f(x^{\ast}) &\ge f(x) - \nabla f(x)^{\top}(\frac{1}{m}\nabla f(x)) + \frac{m}{2}\|\frac{1}{m}\nabla f(x)\|^{2} \\
+    &= f(x) - \frac{1}{2m}\|\nabla f(x)\|^{2}.
+\end{array}
+$$
+
+By rearrangement, we obtain
+
+$$
+\|\nabla f(x)\|^{2} \ge 2m \left[f(x) - f(x^{\ast})\right].
+$$
+
+If $\|\|\nabla f(x)\|\| < \delta$, we have
+
+$$
+f(x) - f(x^{\ast}) \le \frac{\|\nabla f(x)\|^{2}}{2m} \le \frac{\delta^{2}}{2m}.
+$$
+
+Thus, we can conclude when the gradient is small, we are close to having found a point with minimal function value.
+
+Besides the function value, we can also derive an estimate of the distance of $x$ to the optimal point $x^{\ast}$ in terms of gradient,
+
+$$
+\begin{array}{ll}
+f(x^{\ast}) &\ge f(x) + \nabla f(x)^{\top}(x^{\ast} - x) + \frac{m}{2}\|x^{\ast} - x\|^{2} \\
+& \ge f(x) - \underbrace{\|\nabla f(x)\| \|x^{\ast}\ - x\|}_{\mathrm{cauchy-schwarz:}(\langle a, b\rangle)^{2} \le \|a\|^{2}\|b\|^{2}} + \frac{m}{2}\|x^{\ast} - x\|^{2}.
+\end{array}
+$$
+
+By rearrangement, we obtain
+
+$$
+\frac{m}{2}\|x^{\ast} - x\|^{2} \le \|\nabla f(x)\| \|x^{\ast}\ - x\| + \underbrace{(f(x)^{\ast} - f(x))}_{\le 0} \rightarrow \|x^{\ast} - x\| \le \frac{2}{m}\|\nabla f(x)\|.
+$$
+
+With the above derivations, we can now analyze the convergence of the steepest-descent method on strongly convex functions.
+
+$$
+\begin{array}{ll}
+f(x_{k+1})  = f(x_{k} - \frac{1}{L}\nabla f(x_{k})) &\le f(x_{k})-\frac{1}{2L}\|\nabla f(x_{k})\|^{2} \\
+&\le f(x_{k})-\frac{m}{L}(f(x_{k}) - f(x^{\ast})).
+\end{array}
+$$
+
+By some simple math, we can transform the above inequality into,
+
+$$
+f(x_{k + 1}) - f(x^{\ast}) \le (1 - \frac{m}{L})(f(x_{k}) - f(x^{\ast})).
+$$
+
+And by the recursion, we can finally obtain
+
+$$
+f(x_{T}) - f(x^{\ast}) \le (1 - \frac{m}{L})^{T}(f(x_{0}) - f(x^{\ast})).
+$$
+
+Thus, we can conclude the sequence of the function values _<span style="color:red">converges linearly</span>_ to the optimum.
+
+#### Comparison about rates
+
+
 
 
 [1]: https://icourse.club/uploads/files/bd85e2cdfb9463ca73fb2245b0f6097b3803b6e6.pdf
