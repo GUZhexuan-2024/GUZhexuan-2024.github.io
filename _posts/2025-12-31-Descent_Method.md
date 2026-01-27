@@ -96,7 +96,7 @@ Note that this convergence rate is slow and tells us only that we will find a po
 
 ##### Theorem 1
 
-Suppose that $f$ is convex and $L$-smooth, and suppose that the problem $\min_{x\in \mathbb{R}^{n}} f(x)$ has a solution $x^{\ast}$. Define $f^{\ast}:= f(x^{\ast})$. Then the steepest-descent method with steplength $\alpha_{k} \equiv \frac{1}{L}$ generates a sequence $\{x_{k}\}_{k=0}^{\infty}$ that satisfies,
+Suppose that $f$ is convex and $L$-smooth, and suppose that the problem $\min_{x\in \mathbb{R}^{n}} f(x)$ has a solution $x^{\ast}$. Define $f^{\ast}:= f(x^{\ast})$. Then the steepest-descent method with steplength $\alpha_{k} \equiv \frac{1}{L}$ generates a sequence $\{{x_{k}\}}_{k=0}^{\infty}$ that satisfies,
 
 $$
 f(x_{T}) - f^{\ast} \le \frac{L}{2T}\|x_{0} - x^{\ast}\|^{2},\quad T = 1,2,3...
@@ -242,7 +242,7 @@ $$
 By rearrangement, we obtain
 
 $$
-\frac{m}{2}\|x^{\ast} - x\|^{2} \le \|\nabla f(x)\| \|x^{\ast}\ - x\| + \underbrace{(f(x)^{\ast} - f(x))}_{\le 0} \rightarrow \|x^{\ast} - x\| \le \frac{2}{m}\|\nabla f(x)\|.
+\frac{m}{2}\|x^{\ast} - x\|^{2} \le \|\nabla f(x)\| \|x^{\ast}\ - x\| + \underbrace{(f(x^{\ast}) - f(x))}_{\le 0} \rightarrow \|x^{\ast} - x\| \le \frac{2}{m}\|\nabla f(x)\|.
 $$
 
 With the above derivations, we can now analyze the convergence of the steepest-descent method on strongly convex functions.
@@ -254,7 +254,7 @@ f(x_{k+1})  = f(x_{k} - \frac{1}{L}\nabla f(x_{k})) &\le f(x_{k})-\frac{1}{2L}\|
 \end{array}
 $$
 
-By some simple math, we can transform the above inequality into,
+By some simple math, we can transform the above inequality into
 
 $$
 f(x_{k + 1}) - f(x^{\ast}) \le (1 - \frac{m}{L})(f(x_{k}) - f(x^{\ast})).
@@ -266,11 +266,50 @@ $$
 f(x_{T}) - f(x^{\ast}) \le (1 - \frac{m}{L})^{T}(f(x_{0}) - f(x^{\ast})).
 $$
 
-Thus, we can conclude the sequence of the function values _<span style="color:red">converges linearly</span>_ to the optimum.
+Therefore, we can conclude the sequence of the function values _<span style="color:red">converges linearly</span>_ to the optimum.
 
 #### Comparison about rates
 
+For the general case, the iteration $k$ will be found such that $\|\|\nabla f(x_{k})\|\| \le \epsilon$ for some $k \le T$, where
 
+$$
+T \ge \frac{2L\left[f(x_{0}) - \bar{f}\right]}{\epsilon^{2}}.
+$$
 
+For the general convex case, we have $f(x_{k}) - f^{\ast} \le \epsilon$ when
+
+$$
+k \ge \frac{L}{2\epsilon}\|x_{0}-x^{\ast}\|^{2}.
+$$
+
+For the strongly convex case, we have $f(x_{k}) - f^{\ast} \le \epsilon$ when
+
+$$
+k \ge \frac{L}{m}\log(\frac{f(x_{0}) - f^{\ast}}{\epsilon}).
+$$
+
+##### Proof 3
+
+We now give a proof of how to compute $k$ for strongly convex case.
+
+$$
+\begin{array}{ll}
+    (1 - \frac{m}{L})^{k}(f(x_{0}) - f(x^{\ast})) &\le \epsilon ,\quad (0 < 1-\frac{m}{L} < 1)\\
+    k &\ge \log_{(1 - \frac{m}{L})}(\frac{\epsilon}{f(x_{0}) - f(x^{\ast}}) \\
+    &\ge \frac{\ln (\frac{\epsilon}{f(x_{0}) - f(x^{\ast})})}{\ln (1 - \frac{m}{L})}
+\end{array}
+$$
+
+Since
+
+$$
+\ln(1-x) \le -x, \quad (0 < x < 1).
+$$
+
+Therefore,
+
+$$
+k \ge \frac{\ln (\frac{\epsilon}{f(x_{0}) - f(x^{\ast})})}{-\frac{m}{L}} = -\frac{L}{m}\ln(\frac{\epsilon}{f(x_{0}) - f(x^{\ast})}) \rightarrow k \ge \frac{L}{m}\ln(\frac{f(x_{0}) - f^{\ast}}{\epsilon}).
+$$
 
 [1]: https://icourse.club/uploads/files/bd85e2cdfb9463ca73fb2245b0f6097b3803b6e6.pdf
