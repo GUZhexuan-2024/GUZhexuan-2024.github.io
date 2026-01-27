@@ -96,7 +96,7 @@ Note that this convergence rate is slow and tells us only that we will find a po
 
 ##### Theorem 1
 
-Suppose that $f$ is convex and $L$-smooth, and suppose that the problem $\min_{x\in \mathbb{R}^{n}} f(x)$ has a solution $x^{\ast}$. Define $f^{\ast}:= f(x^{\ast})$. Then the steepest-descent method with steplength $\alpha_{k} \equiv \frac{1}{L}$ generates a sequence $\{{x_{k}\}}_{k=0}^{\infty}$ that satisfies,
+Suppose that $f$ is convex and $L$-smooth, and suppose that the problem $\min_{x\in \mathbb{R}^{n}} f(x)$ has a solution $x^{\ast}$. Define $f^{\ast}:= f(x^{\ast})$. Then the steepest-descent method with steplength $\alpha_{k} \equiv \frac{1}{L}$ generates a sequence $\{x_{k}\}_{k=0}^{\infty}$ that satisfies,
 
 $$
 f(x_{T}) - f^{\ast} \le \frac{L}{2T}\|x_{0} - x^{\ast}\|^{2},\quad T = 1,2,3...
@@ -288,9 +288,7 @@ $$
 k \ge \frac{L}{m}\log(\frac{f(x_{0}) - f^{\ast}}{\epsilon}).
 $$
 
-##### Proof 3
-
-We now give a proof of how to compute $k$ for strongly convex case.
+We now present concrete procedures on how to compute $k$ for strongly convex case.
 
 $$
 \begin{array}{ll}
@@ -311,5 +309,9 @@ Therefore,
 $$
 k \ge \frac{\ln (\frac{\epsilon}{f(x_{0}) - f(x^{\ast})})}{-\frac{m}{L}} = -\frac{L}{m}\ln(\frac{\epsilon}{f(x_{0}) - f(x^{\ast})}) \rightarrow k \ge \frac{L}{m}\ln(\frac{f(x_{0}) - f^{\ast}}{\epsilon}).
 $$
+
+Obviously, the iteration of strongly convex case depends logarithmically on $\epsilon$, while the other two cases depend on $1/\epsilon$ and $1/\epsilon^{2}$ respectively. Take an example, if we stop the algorithm when $\epsilon = 10^{-6}$, then the wrorst case may need $10^{12}$ iterations while the best case may only need $\ln(10^{6})$ iterations.
+
+
 
 [1]: https://icourse.club/uploads/files/bd85e2cdfb9463ca73fb2245b0f6097b3803b6e6.pdf
