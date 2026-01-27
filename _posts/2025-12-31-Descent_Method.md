@@ -310,7 +310,7 @@ $$
 k \ge \frac{\ln (\frac{\epsilon}{f(x_{0}) - f(x^{\ast})})}{-\frac{m}{L}} = -\frac{L}{m}\ln(\frac{\epsilon}{f(x_{0}) - f(x^{\ast})}) \rightarrow k \ge \frac{L}{m}\ln(\frac{f(x_{0}) - f^{\ast}}{\epsilon}).
 $$
 
-Obviously, the iteration of strongly convex case depends logarithmically on $\epsilon$, while the other two cases depend on $1/\epsilon$ and $1/\epsilon^{2}$ respectively. Take an example, if we stop the algorithm when $\epsilon = 10^{-6}$, then the wrorst case may need $10^{12}$ iterations while the best case may only need $\ln(10^{6})$ iterations.
+Obviously, the iteration of strongly convex case depends logarithmically on $\epsilon$, while the other two cases depend on $1/\epsilon$ and $1/\epsilon^{2}$ respectively. o illustrate the practical implication, consider a typical stopping criterion $\epsilon = 10^{-6}$. In the worst (general) case, the algorithm may require up to $10^{12}$ iterations, while the strongly convex case needs merely $\ln(10^{6})$ iterations.
 
 
 
